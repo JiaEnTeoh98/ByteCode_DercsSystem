@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Customer Menu</title>
+        <title>Staff Menu</title>
         
     </head>
     <style>
@@ -23,12 +23,12 @@
     
     <body>
     <br>
-        <!--For Customer to navigate to CustomerDeliveryStatusList or CustomerPickupStatusList-->
+        <!--For Customer to navigate to StaffDeliveryList or StaffPickupList-->
         <br><br><br><br><br><br>
         <div>
-        <input type="button" onclick="window.location.href='CustPickupStatusList.php';" class="button" value="Pickup Service"/>
+        <input type="button" onclick="window.location.href='StaffPickupList.php';" class="button" value="Manage Pickup"/>
         <br><br><br><br>
-        <input type="button" onclick="window.location.href='CustDeliveryStatusList.php';" class="button" value="Delivery Service"/>
+        <input type="button" onclick="window.location.href='StaffDeliveryList.php';" class="button" value="Manage Delivery"/>
         
         
         </div>
