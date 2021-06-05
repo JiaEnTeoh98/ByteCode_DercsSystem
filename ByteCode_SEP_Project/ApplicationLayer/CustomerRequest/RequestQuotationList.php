@@ -64,7 +64,7 @@
                         <td><?=$row['DateRequest']?></td>
                         <form action="" method="POST">
                             
-                            <td><i class="fa fa-info-circle"style="font-size:27px;color:yellowgreen" type="button" onclick="location.href='ViewDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'"></i>
+                            <td><i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='ViewDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'">View Details</i>
                             <!--<button name="ViewDetails" value="ViewDetails" class="Rbutton" onclick="location.href='ViewDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'">View Details</button></td>-->
                             </td>
                         </form>

@@ -50,7 +50,7 @@
         <center>
         <h3 style="margin-left: 1em; margin-top: 1em;text-decoration: underline;">Customer Profile</h3>
         <div style="margin-top: 50px; margin-left: 1em;">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <?php foreach($data as $row) { 
                    $_SESSION['Quotation_ID']=$row['Quotation_ID'];
                 ?>

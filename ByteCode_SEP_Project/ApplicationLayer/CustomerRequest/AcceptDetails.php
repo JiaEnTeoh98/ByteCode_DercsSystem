@@ -1,23 +1,19 @@
 <?php
     require_once '../../BusinessServiceLayer/controller/CustomerRequestController.php';
 
-    $custID = $_GET['Quotation_ID'];
+    $Quotation_ID = $_GET['Quotation_ID'];
 
-    $quote = new CustomerRequestController();
-    $data = $user->viewSpeQuote($Quotation_ID); 
-
-    if(isset($_POST['accept'])){
-        $user->acceptQuote();
+    $req = new ManageCustomerRequestController();
+    if(isset($_POST['generate'])){
+    $req->generateQuote($Quotation_ID); 
     }
 
-    if(isset($_POST['reject'])){
-        $user->rejectQuote($Quotation_ID);
-    }
+    
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Customer and Quotation Details</title>
+        <title>Fill In Acceptance Details</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="ExternalCSS/topnav.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -47,50 +43,51 @@
     </head>
     <body>
         <center>
-        <h3 style="margin-left: 1em; margin-top: 1em;text-decoration: underline;">Customer Profile</h3>
+        <h3 style="margin-left: 1em; margin-top: 1em;text-decoration: underline;">Please Fill In Acceptance Details</h3>
         <div style="margin-top: 50px; margin-left: 1em;">
-            <form action="" method="POST">
-                <?php foreach($data as $row) { 
-                    $_SESSION['Quotation_ID']=$row['Quotation_ID'];
-                ?>
+            <form action="" method="POST" enctype="multipart/form-data">
+            
                 <table>
                     <tr>
-                        <td>Name:&emsp;</td>
-                        <td><input type="text" name="CustName value="<?=$row['CustName']?>" readonly></td>
+                        <td>Item</td>
+                        <td>Quantity</td>
+                        <td>Price (RM)</td>
+                        <td>Decsription</td>
                     </tr>
                     <tr>
-                        <td>Phone Number:&emsp;&emsp;</td>
-                        <td><input type="text" name="CustPhoneNo" value="<?=$row['CustPhoneNo']?>" readonly></td>
+                        <td><input type="text" name="ItemName" placeholder="ItemName" required></td>
+                        <td><input type="number" name="ItemQuantity" placeholder="Item Quantity" required></td>
+                        <td><input type="text" name="ItemPrice" placeholder="Item Price" required></td>
+                        <td><input type="text" name="ItemDesc" placeholder="Item Desc" required></td>
+                    </tr>
+                    </table>
+                    <br><br>
+                    <table>
+                    <tr>
+                        <td>Service Charge (RM):</td>
+                        <td><input type="text" name="Sercharge" placeholder="Service charge" required></td>
                     </tr>
                     <tr>
-                        <td>Address:</td>
-                        <td><input type="text" name="CustAddress" value="<?=$row['CustAddress']?>" readonly></td>
+                        <td>Total Need to Pay:</td>
+                        <td><input type="text" name="RepairPrice" placeholder="Repair Price" required></td>
                     </tr>
                     <tr>
-                        <td>Device Model:</td>
-                        <td><input type="text" name="DeviceModel" value="<?=$row['DeviceModel']?>" readonly></td>
-                    </tr>
-                    <tr>
-                        <td>Device Color:</td>
-                        <td><input type="text" name="DeviceColor" value="<?=$row['DeviceColor']?>" readonly></td>
-                    </tr>
-                    <tr>
-                        <td>Device Symptom:</td>
-                        <td><input type="text" name="DeviceSymptom" value="<?=$row['DeviceSymptom']?>" readonly></td>
-                    </tr>
-                    <tr>
-                        <td>Device Damage:</td>
-                        <td><input type="text" name="DeviceDamage" value="<?=$row['DeviceDamage']?>" readonly></td>
+                        <td>Additional Notes:</td>
+                        <td><input type="text" name="ItemNote" placeholder="Item Note" required></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: right;">
                         <br>
-                            <button type="submit" name="accept" class="rbutton">Accept</button>&emsp;
-                            <button type="submit"  name="reject" class="rbutton">Reject</button>
+                      
+                            <button type="submit" name="generate" class="rbutton">Generate</button>&emsp;
+                            <button type="submit"  name="cancel" class="rbutton">Cancel</button>
+
+                            
                         </td>
+                        
                     </tr>
                 </table>
-                <?php } ?>             
+                      
             </form>
         </div>
     </center>

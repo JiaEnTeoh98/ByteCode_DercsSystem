@@ -51,6 +51,23 @@ class ManageCustomerRequestController{
         }
     }
 
+    function generateQuote($Quotation_ID){
+        $req = new ManageCustomerRequestModel();
+        $req->Quotation_ID = $_POST['Quotation_ID'];
+	    $req->ItemName = $_POST['ItemName'];
+        $req->ItemQuantity = $_POST['ItemQuantity'];
+	    $req->ItemPrice = $_POST['ItemPrice'];
+        $req->ItemDesc = $_POST['ItemDesc'];
+        $req->Sercharge = $_POST['Sercharge'];
+        $req->RepairPrice = $_POST['RepairPrice'];
+        $req->ItemNote = $_POST['ItemNote'];
+        if($req->generateQuotation() > 0){
+            $message = "Quotation sucessfully generated and has been send to the customer!";
+			echo "<script type='text/javascript'>alert('$message');
+			window.location = '../../ApplicationLayer/CustomerRequest/AcceptDetails.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+        }
+    }
+
     /* function delete(){
         $req = new manageServiceModel();
         $req->serviceID = $_POST['serviceID'];

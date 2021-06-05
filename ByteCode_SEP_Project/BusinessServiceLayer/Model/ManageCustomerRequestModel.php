@@ -4,6 +4,7 @@ require_once '../../libs/database.php';
 class ManageCustomerRequestModel{
 
     public $Quotation_ID, $Cus_ID ,$CustName, $CustPhoneNo, $CustAddress, $DeviceModel, $DeviceColor, $DeviceSymptom, $DeviceDamage, $DateRequest;
+    public $Item_ID, $ItemName, $ItemQuantity ,$ItemPrice, $ItemDesc,$Sercharge,$RepairPrice, $ItemNote;
 
     function RequestQuotation(){
         $sql = "insert into quotation(Cus_ID, DeviceModel, DeviceColor,DeviceSymptom, DeviceDamage, DateRequest) values(:Cus_ID, :DeviceModel, :DeviceColor, :DeviceSymptom, :DeviceDamage, :DateRequest)";
@@ -36,6 +37,17 @@ class ManageCustomerRequestModel{
         $sql = "update quotation set QuotationStatus='Rejected' where Quotation_ID=:Quotation_ID";
         $args = [':Quotation_ID'=>$this->Quotation_ID];
         return DB::run($sql,$args);
+    }
+
+    function generateQuotation(){
+        $sql = "insert into item(Quotation_ID, Item_ID, ItemName, ItemQuantity, ItemDesc, Sercharge, ItemNote) values(:Quotation_ID, :Item_ID, :ItemName, :ItemQuantity, :ItemDesc, :Sercharge, :ItemNote)";
+        $args = [':Quotation_ID'=>$this->Quotation_ID,':Item_ID'=>$this->Item_ID, ':ItemName'=>$this->ItemName, ':ItemQuantity'=>$this->ItemQuantity, ':ItemDesc'=>$this->ItemDesc, ':Sercharge'=>$this->Sercharge];
+        $sql1 = "insert into quotation(Quotation_ID, RepairPrice) values(:Quotation_ID,:RepairPrice)";
+        $args = [':Quotation_ID'=>$this->Quotation_ID,':RepairPrice'=>$this->RepairPrice];
+        $stmt = DB::run($sql, $args);
+        $stmt1 = DB::run($sql1, $args1);
+        //$count = $stmt->rowCount();
+        //return $count;
     }
 
     /* function deleteItem(){
