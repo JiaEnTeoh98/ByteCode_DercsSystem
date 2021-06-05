@@ -68,20 +68,10 @@ class ManageCustomerRequestController{
         }
     }
 
-    /* function delete(){
-        $req = new manageServiceModel();
-        $req->serviceID = $_POST['serviceID'];
-        if($req->deleteItem()){
-            $message = "Success Delete!";
-			echo "<script type='text/javascript'>alert('$message');
-			window.location = '../../ApplicationLayer/manageService/serviceProviderServiceView.php?spID=".$_SESSION['spID']."';</script>";
-        }
-    }
+   
+
 
     
-
-     */
-
 }
 
 ?>

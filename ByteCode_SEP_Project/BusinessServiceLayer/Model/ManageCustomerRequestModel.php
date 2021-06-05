@@ -50,6 +50,8 @@ class ManageCustomerRequestModel{
         //return $count;
     }
 
+    
+
     /* function deleteItem(){
         $sql = "delete from service where serviceID=:serviceID";
         $args = [':serviceID'=>$this->serviceID];
