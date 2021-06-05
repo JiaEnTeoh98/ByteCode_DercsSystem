@@ -103,5 +103,8 @@ if(isset($_POST['login'])){
         <div style="text-align: center; font-size: medium;">
             Don't have an account? <a class="register" href="./CustRegister.php"><u>Register here</u></a>.
         </div>
+        <div style="text-align: center; font-size: medium;">
+            Forgot Your Password? <a class="forgot" href="./ForgotPassword.php"><u>Reset Here</u></a>.
+        </div>
     </body>
 </html>
