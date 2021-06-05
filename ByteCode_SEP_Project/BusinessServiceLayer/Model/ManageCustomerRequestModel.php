@@ -3,7 +3,7 @@ require_once '../../libs/database.php';
 
 class ManageCustomerRequestModel{
 
-    public $Quotation_ID, $Cus_ID, $DeviceModel, $DeviceColor, $DeviceSymptom, $DeviceDamage, $DateRequest;
+    public $Quotation_ID, $Cus_ID ,$CustName, $CustPhoneNo, $CustAddress, $DeviceModel, $DeviceColor, $DeviceSymptom, $DeviceDamage, $DateRequest;
 
     function RequestQuotation(){
         $sql = "insert into quotation(Cus_ID, DeviceModel, DeviceColor,DeviceSymptom, DeviceDamage, DateRequest) values(:Cus_ID, :DeviceModel, :DeviceColor, :DeviceSymptom, :DeviceDamage, :DateRequest)";
@@ -20,6 +20,24 @@ class ManageCustomerRequestModel{
         return DB::run($sql, $args);
     }
 
+    function viewSpeQuotation(){
+        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Quotation_ID=Quotation_ID'";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql, $args);
+    }
+
+    function acceptQuotation(){
+        $sql = "update quotation set QuotationStatus='Accepted' where Quotation_ID=:Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+
+    function rejectQuotation(){
+        $sql = "update quotation set QuotationStatus='Rejected' where Quotation_ID=:Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+
     /* function deleteItem(){
         $sql = "delete from service where serviceID=:serviceID";
         $args = [':serviceID'=>$this->serviceID];
@@ -33,10 +51,6 @@ class ManageCustomerRequestModel{
         return DB::run($sql,$args);
     }
     
-    function updateItem(){
-        $sql = "update service set DeviceColor=:DeviceColor, DeviceSymptom=:DeviceSymptom, DateRequest=:DateRequest, itemstock=:itemstock, DeviceModel=:DeviceModel where serviceID=:serviceID";
-        $args = [':serviceID'=>$this->serviceID, ':DeviceColor'=>$this->DeviceColor, ':DeviceSymptom'=>$this->DeviceSymptom,':DateRequest'=>$this->DateRequest, ':itemstock'=>$this->itemstock, ':DeviceModel'=>$this->DeviceModel];
-        return DB::run($sql,$args);
-    } */
+     */
 }
 ?>

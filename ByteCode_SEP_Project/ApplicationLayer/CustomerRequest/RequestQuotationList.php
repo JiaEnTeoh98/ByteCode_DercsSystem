@@ -41,15 +41,8 @@
         </style>
     </head>
     <body>
-        <!-- <div class="topnav">
-            <a href="./serviceProviderServiceView.php?spID=<?=$_SESSION['spID']?>"><img src="Image/largerlogo.png" width="110px" height="70px"><label style="font-size: 120%; padding-right: 5px;">Homepage</label></a>
-            
-            <div class="topnav-right">
-                <a href="../../ApplicationLayer/manageUserProfile/serviceproviderProfile.php?spID=<?=$_SESSION['spID']?>"><i class="fa fa-user" aria-hidden="true" style="font-size: 50px; padding-right: 5px; padding-left: 5px; padding-top: 22%; padding-bottom: 22%;"></i></a>
-            </div>
-        </div> -->
-
-        <div class="logout"><a href="../manageLoginAndRegister/userLogin.php">Logout</a></div>
+        
+        
         <center>
         <h3 style="margin-left: 1em; margin-top: 1em; text-decoration: underline;">REQUEST QUOTATION LIST</h3>
         <br><br>
@@ -61,7 +54,7 @@
                     <th>Name</th>
                     <th>Phone Number</th>
                     <th>Date Request</th>
-                    <th></th>
+                
                     <?php foreach($data as $row){ ?>
                     <tr>
                         
@@ -70,8 +63,9 @@
                         <td><?=$row['CustPhoneNo']?></td>
                         <td><?=$row['DateRequest']?></td>
                         <form action="" method="POST">
-                            <td style="text-align: center;">
-                            <td><button type="submit" name="ViewDetails" value="ViewDetails" class="Rbutton" onclick="location.href='AcceptDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'">View Deatils</td>
+                            
+                            <td><i class="fa fa-info-circle"style="font-size:27px;color:yellowgreen" type="button" onclick="location.href='ViewDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'"></i>
+                            <!--<button name="ViewDetails" value="ViewDetails" class="Rbutton" onclick="location.href='ViewDetails.php?Quotation_ID=<?=$row['Quotation_ID']?>'">View Details</button></td>-->
                             </td>
                         </form>
                     <?php } ?>

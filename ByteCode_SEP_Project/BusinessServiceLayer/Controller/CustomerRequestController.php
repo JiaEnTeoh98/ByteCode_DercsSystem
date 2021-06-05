@@ -25,6 +25,32 @@ class ManageCustomerRequestController{
         return $req->viewAllQuotation();
     }
 
+    function viewSpeQuote($Quotation_ID){
+        $req = new ManageCustomerRequestModel();
+        $req->Quotation_ID = $Quotation_ID;
+        return $req->viewSpeQuotation();
+    }
+
+    function acceptQuote(){
+        $req = new ManageCustomerRequestModel();
+        $req->Quotation_ID = $Quotation_ID;
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        if($req->acceptQuotation()){
+		    echo "<script> window.location = '../../ApplicationLayer/CustomerRequest/AcceptDetails.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+        }
+    }
+
+    function rejectQuote(){
+        $req = new ManageCustomerRequestModel();
+        $req->Quotation_ID = $Quotation_ID;
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        if($req->rejectQuotation()){
+            $message = "Rejected!";
+		    echo "<script type='text/javascript'>alert('$message');
+			window.location = '../../ApplicationLayer/HomePage/StaffHomePage.php';</script>";
+        }
+    }
+
     /* function delete(){
         $req = new manageServiceModel();
         $req->serviceID = $_POST['serviceID'];
@@ -37,27 +63,7 @@ class ManageCustomerRequestController{
 
     
 
-    function viewItem($serviceID){
-        $req = new manageServiceModel();
-        $req->serviceID = $serviceID;
-        return $req->viewPerItem();
-    }
-
-    function update(){
-        $req = new manageServiceModel();
-        $req->serviceID = $_POST['serviceID'];
-        $req->reqname = $_POST['reqname'];
-        $req->reqprice = $_POST['reqprice'];
-	$req->reqdesc = $_POST['reqdesc'];
-	$req->reqstock = $_POST['reqstock'];
-        $req->servicetype = $_POST['servicetype'];
-
-        if($req->updateItem()){
-            $message = "Success Update!";
-		    echo "<script type='text/javascript'>alert('$message');
-		    window.location = '../../ApplicationLayer/manageService/serviceProviderServiceView.php?spID=".$_SESSION['spID']."';</script>";
-        }
-    } */
+     */
 
 }
 
