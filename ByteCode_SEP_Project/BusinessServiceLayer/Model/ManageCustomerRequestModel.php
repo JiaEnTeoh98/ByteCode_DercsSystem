@@ -21,7 +21,7 @@ class ManageCustomerRequestModel{
     }
 
     function viewSpeQuotation(){
-        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Quotation_ID=Quotation_ID'";
+        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Quotation_ID=Quotation_ID";
         $args = [':Quotation_ID'=>$this->Quotation_ID];
         return DB::run($sql, $args);
     }
