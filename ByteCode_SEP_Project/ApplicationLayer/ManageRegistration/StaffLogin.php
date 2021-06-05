@@ -1,5 +1,6 @@
 <?php
 require_once '../../BusinessServiceLayer/controller/ManageRegistrationController.php';
+
 $user = new ManageRegistrationController();
 
 if(isset($_POST['login'])){
