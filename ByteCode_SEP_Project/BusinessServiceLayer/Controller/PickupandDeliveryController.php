@@ -15,6 +15,30 @@ class PickupandDeliveryController{
         return $req->RviewAllDeliveryQuotation();
     }
 
+    function SviewAllPickupInv(){
+        $req = new PickupandDeliveryModel();
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        return $req->SviewAllPickupInvoice();
+    }
+
+    function SviewAllDeliveryInv(){
+        $req = new PickupandDeliveryModel();
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        return $req->SviewAllDeliveryInvoice();
+    }
+
+    function CviewAllPickupStat($Cus_ID){
+        $req = new PickupandDeliveryModel();
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        return $req->CviewAllPickupStatus();
+    }
+
+    function CviewAllDeliveryStat(){
+        $req = new PickupandDeliveryModel();
+        //$req->Quotation_ID = $_SESSION['Quotation_ID'];
+        return $req->CviewAllDeliveryStatus();
+    }
+
 
     
 }

@@ -26,6 +26,7 @@
         <!--For Customer to navigate to StaffDeliveryList or StaffPickupList-->
         <br><br><br><br><br><br>
         <div>
+        <p style="font-size:27px;">Please choose service for printing of invoice：</p>
         <input type="button" onclick="window.location.href='StaffPickupList.php';" class="button" value="Manage Pickup"/>
         <br><br><br><br>
         <input type="button" onclick="window.location.href='StaffDeliveryList.php';" class="button" value="Manage Delivery"/>

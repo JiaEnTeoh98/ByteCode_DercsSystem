@@ -1,3 +1,12 @@
+<?php
+    require_once '../../BusinessServiceLayer/Controller/PickupandDeliveryController.php';
+    
+
+    session_start();
+
+?>
+
+
 <html>
     <head>
         <title>Customer Menu</title>
@@ -26,9 +35,11 @@
         <!--For Customer to navigate to CustomerDeliveryStatusList or CustomerPickupStatusList-->
         <br><br><br><br><br><br>
         <div>
-        <input type="button" onclick="window.location.href='CustPickupStatusList.php';" class="button" value="Pickup Service"/>
+        <p style="font-size:27px;">Please choose the service to view status：</p>
+        <br><br>
+        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='CustPickupStatusList.php?Cus_ID=<?=$row['Cus_ID']?>'">Pickup Service</i>
         <br><br><br><br>
-        <input type="button" onclick="window.location.href='CustDeliveryStatusList.php';" class="button" value="Delivery Service"/>
+        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='CustPickupStatusList.php?Cus_ID=<?=$row['Cus_ID']?>'">Pickup Service</i>
         
         
         </div>
