@@ -88,6 +88,18 @@ class PickupandDeliveryModel{
         $args = [':Quotation_ID'=>$this->Quotation_ID];
         return DB::run($sql,$args);
     }
+
+    function UploadDelEvidence(){
+        $sql = "update quotation set DeliveryEvidence=:DeliveryEvidence where Quotation_ID=Quotation_ID";
+        $args = [':DeliveryEvidence'=>$this->DeliveryEvidence];
+        return DB::run($sql,$args);
+    }
+
+    function UploadPickEvidence(){
+        $sql = "update quotation set PickupEvidence=:PickupEvidence where Quotation_ID=Quotation_ID";
+        $args = [':PickupEvidence'=>$this->PickupEvidence];
+        return DB::run($sql,$args);
+    }
     
     
 }

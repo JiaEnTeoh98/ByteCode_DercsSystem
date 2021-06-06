@@ -52,7 +52,7 @@ class PickupandDeliveryController{
         if($req->acceptDelivery()){
             $message = "Accepted!";
 		    echo "<script type='text/javascript'>alert('$message');
-		    window.location = '../../ApplicationLayer/PickupandDelivery/RiderDeliveryStatus.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+		    window.location = '../../ApplicationLayer/PickupandDelivery/RiderUploadDeliveryEvidence.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
         }
     }
 
@@ -80,7 +80,7 @@ class PickupandDeliveryController{
         if($req->acceptPickup()){
             $message = "Accepted!";
 		    echo "<script type='text/javascript'>alert('$message');
-		    window.location = '../../ApplicationLayer/PickupandDelivery/RiderPickupStatus.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+		    window.location = '../../ApplicationLayer/PickupandDelivery/RiderUploadPickupEvidence.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
         }
     }
 
@@ -95,7 +95,53 @@ class PickupandDeliveryController{
         }
     }
 
+    function DelEvidence(){
+        $req = new PickupandDeliveryModel();
+        $req->Quotation_ID = $_POST['Quotation_ID'];
+        $req->DeliveryEvidence = $_FILES['DeliveryEvidence']['name'];
+        $target_dir = "upload/";
+        $target_file = $target_dir . basename($_FILES["DeliveryEvidence"]["name"]);
+	    // Select file type
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Valid file extensions
+        $extensions_arr = array("jpg","jpeg","png","gif");
+        // Check extension
+        if( in_array($imageFileType,$extensions_arr) ){
+          // Convert to base64
+          $image_base64 = base64_encode(file_get_contents($_FILES['DeliveryEvidence']['tmp_name']) );
+          $req->DeliveryEvidence = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+        }
 
+        if($req->UploadDelEvidence() > 0){
+            $message = "Success Upload!";
+			echo "<script type='text/javascript'>alert('$message');
+			window.location = '../../ApplicationLayer/PickupandDelivery/RiderPickupandDelivery.php';</script>";
+        }
+    }
+
+    function PickEvidence(){
+        $req = new PickupandDeliveryModel();
+        $req->Quotation_ID = $_POST['Quotation_ID'];
+        $req->PickupEvidence = $_FILES['PickupEvidence']['name'];
+        $target_dir = "upload/";
+        $target_file = $target_dir . basename($_FILES["PickupEvidence"]["name"]);
+	    // Select file type
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Valid file extensions
+        $extensions_arr = array("jpg","jpeg","png","gif");
+        // Check extension
+        if( in_array($imageFileType,$extensions_arr) ){
+          // Convert to base64
+          $image_base64 = base64_encode(file_get_contents($_FILES['PickupEvidence']['tmp_name']) );
+          $req->PickupEvidence = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+        }
+
+        if($req->UploadPickEvidence() > 0){
+            $message = "Success Upload!";
+			echo "<script type='text/javascript'>alert('$message');
+			window.location = '../../ApplicationLayer/PickupandDelivery/RiderPickupandDelivery.php';</script>";
+        }
+    }
     
 }
 
