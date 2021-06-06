@@ -78,7 +78,7 @@
                     <tr>
                         <td colspan="2" style="text-align: right;">
                         <br>
-                      
+                        <input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
                             <button type="submit" name="generate" class="rbutton">Generate</button>&emsp;
                             <button type="submit"  name="cancel" class="rbutton">Cancel</button>
 

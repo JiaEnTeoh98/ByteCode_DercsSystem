@@ -9,6 +9,10 @@
         $req->RequestQuote();
     }
 
+    if(isset($_POST['viewQ'])){
+        $req->CViewQuote();
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -100,8 +104,8 @@
         <table>
         <tr>
         <td>
-        
-        <button type="submit" name="viewQ" value="View Quotation" class="Vbutton" disabled>View Quotation
+        <input type="hidden" name="Cus_ID" value="<?=$row['Cus_ID']?>">
+        <button type="submit" name="viewQ" value="ViewQ" class="Vbutton" >View Quotation
         </td>
         <td><button type="submit" name="requestQ" value="requestQ" class="Rbutton">Request Quotation
         </td>

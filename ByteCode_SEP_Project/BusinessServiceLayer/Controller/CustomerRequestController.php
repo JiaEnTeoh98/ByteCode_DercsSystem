@@ -25,6 +25,12 @@ class ManageCustomerRequestController{
         return $req->viewAllQuotation();
     }
 
+    function CviewQuote($Cus_ID){
+        $req = new ManageCustomerRequestModel();
+        $req->Cus_ID = $_SESSION['Cus_ID'];
+        return $req->viewAllQuotation();
+    }
+
     function viewSpeQuote($Quotation_ID){
         $req = new ManageCustomerRequestModel();
         $req->Quotation_ID = $Quotation_ID;
@@ -63,10 +69,10 @@ class ManageCustomerRequestController{
         $req->Sercharge = $_POST['Sercharge'];
         $req->RepairPrice = $_POST['RepairPrice'];
         $req->ItemNote = $_POST['ItemNote'];
-        if($req->generateQuotation() > 0){
+        if($req->generateQuotation()){
             $message = "Quotation sucessfully generated and has been send to the customer!";
 			echo "<script type='text/javascript'>alert('$message');
-			window.location = '../../ApplicationLayer/CustomerRequest/AcceptDetails.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+			window.location = '../../ApplicationLayer/HomePage/StaffHomePage.php';</script>";
         }
     }
 

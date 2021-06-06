@@ -27,6 +27,12 @@ class ManageCustomerRequestModel{
         return DB::run($sql, $args);
     }
 
+    function viewSpeQuotation(){
+        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Cus_ID=Cus_ID";
+        $args = [':Cus_ID'=>$this->Cus_ID];
+        return DB::run($sql, $args);
+    }
+
     function acceptQuotation(){
         $sql = "update quotation set QuotationStatus='Accepted' where Quotation_ID=Quotation_ID";
         $args = [':Quotation_ID'=>$this->Quotation_ID];
@@ -40,14 +46,14 @@ class ManageCustomerRequestModel{
     }
 
     function generateQuotation(){
-        $sql = "insert into item(Quotation_ID, Item_ID, ItemName, ItemQuantity, ItemDesc, Sercharge, ItemNote) values(:Quotation_ID, :Item_ID, :ItemName, :ItemQuantity, :ItemDesc, :Sercharge, :ItemNote)";
-        $args = [':Quotation_ID'=>$this->Quotation_ID,':Item_ID'=>$this->Item_ID, ':ItemName'=>$this->ItemName, ':ItemQuantity'=>$this->ItemQuantity, ':ItemDesc'=>$this->ItemDesc, ':Sercharge'=>$this->Sercharge];
-        $sql1 = "insert into quotation(Quotation_ID, RepairPrice) values(:Quotation_ID,:RepairPrice)";
-        $args = [':Quotation_ID'=>$this->Quotation_ID,':RepairPrice'=>$this->RepairPrice];
+        $sql = "insert into item(Quotation_ID, ItemName, ItemQuantity, ItemDesc, Sercharge, ItemNote,RepairPrice,ItemPrice) values(:Quotation_ID,:ItemName, :ItemQuantity, :ItemDesc, :Sercharge, :ItemNote,:RepairPrice,:ItemPrice)";
+        $args = [':Quotation_ID'=>$this->Quotation_ID,':ItemName'=>$this->ItemName, ':ItemQuantity'=>$this->ItemQuantity, ':ItemDesc'=>$this->ItemDesc, ':Sercharge'=>$this->Sercharge,':RepairPrice'=>$this->RepairPrice,':ItemPrice'=>$this->ItemPrice,':ItemNote'=>$this->ItemNote];
+        //$sql1 = "insert into quotation(Quotation_ID, RepairPrice) values(:Quotation_ID,:RepairPrice)";
+        //$args = [':Quotation_ID'=>$this->Quotation_ID,':RepairPrice'=>$this->RepairPrice];
         $stmt = DB::run($sql, $args);
-        $stmt1 = DB::run($sql1, $args1);
-        //$count = $stmt->rowCount();
-        //return $count;
+        //$stmt1 = DB::run($sql1, $args1);
+        $count = $stmt->rowCount();
+        return $count;
     }
 
     
