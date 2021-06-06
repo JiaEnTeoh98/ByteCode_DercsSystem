@@ -90,13 +90,13 @@ class PickupandDeliveryModel{
     }
 
     function UploadDelEvidence(){
-        $sql = "update quotation set DeliveryEvidence=:DeliveryEvidence where Quotation_ID=Quotation_ID";
+        $sql = "update quotation set DeliveryEvidence=:DeliveryEvidence,TrackDelivery='Done'  where Quotation_ID=Quotation_ID";
         $args = [':DeliveryEvidence'=>$this->DeliveryEvidence];
         return DB::run($sql,$args);
     }
 
     function UploadPickEvidence(){
-        $sql = "update quotation set PickupEvidence=:PickupEvidence where Quotation_ID=Quotation_ID";
+        $sql = "update quotation set PickupEvidence=:PickupEvidence ,TrackPickup='Done' where Quotation_ID=Quotation_ID";
         $args = [':PickupEvidence'=>$this->PickupEvidence];
         return DB::run($sql,$args);
     }
