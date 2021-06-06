@@ -36,7 +36,9 @@ class ManageCustomerRequestController{
         $req->Quotation_ID = $Quotation_ID;
         //$req->Quotation_ID = $_SESSION['Quotation_ID'];
         if($req->acceptQuotation()){
-		    echo "<script> window.location = '../../ApplicationLayer/CustomerRequest/AcceptDetails.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
+            $message = "Accepted!";
+		    echo "<script type='text/javascript'>alert('$message');
+		    window.location = '../../ApplicationLayer/CustomerRequest/AcceptDetails.php?Quotation_ID=".$_SESSION['Quotation_ID']."';</script>";
         }
     }
 

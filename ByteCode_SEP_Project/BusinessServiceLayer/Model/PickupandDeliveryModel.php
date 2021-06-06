@@ -53,6 +53,42 @@ class PickupandDeliveryModel{
         return DB::run($sql, $args);
     }
 
+    function viewSpeDelivery(){
+        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql, $args);
+    }
+
+    function acceptDelivery(){
+        $sql = "update quotation set DeliveryStatus='Accepted' where Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+
+    function rejectDelivery(){
+        $sql = "update quotation set DeliveryStatus='Rejected' where Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+
+    function viewSpePickup(){
+        $sql = "select * from quotation join customer on quotation.Cus_ID = customer.Cus_ID WHERE Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql, $args);
+    }
+
+    function acceptPickup(){
+        $sql = "update quotation set PickupStatus='Accepted' where Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+
+    function rejectPickup(){
+        $sql = "update quotation set PickupStatus='Rejected' where Quotation_ID=Quotation_ID";
+        $args = [':Quotation_ID'=>$this->Quotation_ID];
+        return DB::run($sql,$args);
+    }
+    
     
 }
 ?>

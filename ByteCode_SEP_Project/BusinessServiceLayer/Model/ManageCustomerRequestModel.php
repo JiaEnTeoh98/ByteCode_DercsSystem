@@ -28,13 +28,13 @@ class ManageCustomerRequestModel{
     }
 
     function acceptQuotation(){
-        $sql = "update quotation set QuotationStatus='Accepted' where Quotation_ID=:Quotation_ID";
+        $sql = "update quotation set QuotationStatus='Accepted' where Quotation_ID=Quotation_ID";
         $args = [':Quotation_ID'=>$this->Quotation_ID];
         return DB::run($sql,$args);
     }
 
     function rejectQuotation(){
-        $sql = "update quotation set QuotationStatus='Rejected' where Quotation_ID=:Quotation_ID";
+        $sql = "update quotation set QuotationStatus='Rejected' where Quotation_ID=Quotation_ID";
         $args = [':Quotation_ID'=>$this->Quotation_ID];
         return DB::run($sql,$args);
     }
