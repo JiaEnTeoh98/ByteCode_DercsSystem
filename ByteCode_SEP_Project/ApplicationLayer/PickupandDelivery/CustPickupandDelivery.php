@@ -39,7 +39,7 @@
         <br><br>
         <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='CustPickupStatusList.php?Cus_ID=<?=$row['Cus_ID']?>'">Pickup Service</i>
         <br><br><br><br>
-        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='CustPickupStatusList.php?Cus_ID=<?=$row['Cus_ID']?>'">Pickup Service</i>
+        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='CustPickupStatusList.php?Cus_ID=<?=$row['Cus_ID']?>'">Delivery Service</i>
         
         
         </div>
