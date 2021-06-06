@@ -4,6 +4,7 @@
     session_start();
 
     $req = new ManageCustomerRequestController();
+    
 
     if(isset($_POST['requestQ'])){
         $req->RequestQuote();
@@ -102,16 +103,19 @@
         </tr>
         </table>
         <table>
+        </form>
         <tr>
         <td>
-        <input type="hidden" name="Cus_ID" value="<?=$row['Cus_ID']?>">
-        <button type="submit" name="viewQ" value="ViewQ" class="Vbutton" >View Quotation
+        
+        <form action="" method="POST">
+        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='ViewQuotation.php'">View Quotation</i>
         </td>
         <td><button type="submit" name="requestQ" value="requestQ" class="Rbutton">Request Quotation
         </td>
         <td><button type="submit" name="Cancel" value="Cancel" class="Rbutton">Cancel
         </td>
         
+
        </form>
        
 

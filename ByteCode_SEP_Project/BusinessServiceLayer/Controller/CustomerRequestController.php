@@ -28,7 +28,8 @@ class ManageCustomerRequestController{
     function CviewQuote($Cus_ID){
         $req = new ManageCustomerRequestModel();
         $req->Cus_ID = $_SESSION['Cus_ID'];
-        return $req->viewAllQuotation();
+        return $req->CviewAllQuotation();
+        
     }
 
     function viewSpeQuote($Quotation_ID){
