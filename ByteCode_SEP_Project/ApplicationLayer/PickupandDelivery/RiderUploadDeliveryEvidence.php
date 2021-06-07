@@ -16,12 +16,7 @@
 <html>
     <head>
         <title>Rider Upload Delivery Evidence</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="ExternalCSS/topnav.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://use.fontawesome.com/3cc6771f24.js"></script>
+        
         <script>
             var loadFile = function(event){
                 var image = document.getElementById('imageOut');
@@ -33,6 +28,20 @@
                 var y = x.name;
 
                 document.myForm.imagename.value = y;
+            }
+        </script>
+
+<script>
+            var loadFilee = function(event){
+                var image = document.getElementById('imageOut');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            };
+
+            function displayFilee(){
+                var x = document.getElementById("CODEvidence").files[0];
+                var y = x.name;
+
+                document.myForm.imagenama.value = y;
             }
         </script>
         <style>
@@ -101,21 +110,35 @@ div {text-align: center;}
         <td><input type="text" name="DeviceColor" value="<?=$row['DeviceColor']?>" readonly></td>
         </tr>
 
-        <tr>
+        <tr rowspan="2">
         <td>Address:</td>
         <td><input type="text" name="CustAddress" value="<?=$row['CustAddress']?>" readonly></td>
         
         
         <td>
-                        <input type="button" value="Select File" onclick="document.getElementById('DeliveryEvidence').click()">
-                        <input type="file" id="DeliveryEvidence" name="DeliveryEvidence" accept="image/*" onchange="loadFile(event)" style="display: none">
-                        &emsp;&emsp;
-                    </td>
-                    <td><input type="text" name="imagename" placeholder="Photo.png" size="15">&emsp;&emsp;</td>
-                    <td><input type="button" value="Upload Photo" accept="image/*" onclick="displayFile()" onchange="loadFile(event)"></td>
-                    <td><input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
-                    <button type="submit" name="upload" >Upload</button></td>
-                    <?php } ?>  
+         <input type="button" value="Select File" onclick="document.getElementById('DeliveryEvidence').click()">
+         <input type="file" id="DeliveryEvidence" name="DeliveryEvidence" accept="image/*" onchange="loadFile(event)" style="display: none">
+          &emsp;&emsp;
+         
+        <input type="text" name="imagename" placeholder="Photo.png" size="15">&emsp;&emsp;</td>
+        <td><input type="button" value="Upload Photo" accept="image/*" onclick="displayFile()" onchange="loadFile(event)"></td>
+        
+        <tr>
+        <td colspan="2">
+        <td>
+         <input type="button" value="Select File" onclick="document.getElementById('CODEvidence').click()">
+         <input type="file" id="CODEvidence" name="CODEvidence" accept="image/*" onchange="loadFilee(event)" style="display: none">
+          &emsp;&emsp;
+        <input type="text" name="imagenama" placeholder="Photo.png" size="15">&emsp;&emsp;</td>
+        <td><input type="button" value="Upload Photo" accept="image/*" onclick="displayFilee()" onchange="loadFilee(event)"></td>
+
+        <tr>
+         
+         <td colspan="4"><input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
+         <button type="submit" name="upload" >Upload</button></td>
+    
+         <tr>
+         <?php } ?>  
         </form>
         
         </tr>

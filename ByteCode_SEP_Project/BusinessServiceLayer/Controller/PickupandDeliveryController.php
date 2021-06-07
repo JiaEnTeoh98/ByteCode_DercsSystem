@@ -99,6 +99,7 @@ class PickupandDeliveryController{
         $req = new PickupandDeliveryModel();
         $req->Quotation_ID = $_POST['Quotation_ID'];
         $req->DeliveryEvidence = $_FILES['DeliveryEvidence']['name'];
+        $req->CODEvidence = $_FILES['CODEvidence']['name'];
         $target_dir = "upload/";
         $target_file = $target_dir . basename($_FILES["DeliveryEvidence"]["name"]);
 	    // Select file type
@@ -110,6 +111,19 @@ class PickupandDeliveryController{
           // Convert to base64
           $image_base64 = base64_encode(file_get_contents($_FILES['DeliveryEvidence']['tmp_name']) );
           $req->DeliveryEvidence = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+        }
+
+        $target_dirc = "upload/";
+        $target_files = $target_dirc . basename($_FILES["CODEvidence"]["name"]);
+	    // Select file type
+        $imageFileTypee = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Valid file extensions
+        $extensions_arrr = array("jpg","jpeg","png","gif");
+        // Check extension
+        if( in_array($imageFileTypee,$extensions_arrr) ){
+          // Convert to base64
+          $image_basee64 = base64_encode(file_get_contents($_FILES['CODEvidence']['tmp_name']) );
+          $req->CODEvidence = 'data:image/'.$imageFileTypee.';base64,'.$image_basee64;
         }
 
         if($req->UploadDelEvidence() > 0){

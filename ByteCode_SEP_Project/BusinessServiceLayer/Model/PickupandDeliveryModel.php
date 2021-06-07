@@ -90,8 +90,8 @@ class PickupandDeliveryModel{
     }
 
     function UploadDelEvidence(){
-        $sql = "update quotation set DeliveryEvidence=:DeliveryEvidence,TrackDelivery='Done'  where Quotation_ID=Quotation_ID";
-        $args = [':DeliveryEvidence'=>$this->DeliveryEvidence];
+        $sql = "update quotation set DeliveryEvidence=:DeliveryEvidence,CODEvidence=:CODEvidence,TrackDelivery='Done'  where Quotation_ID=Quotation_ID";
+        $args = [':DeliveryEvidence'=>$this->DeliveryEvidence,':CODEvidence'=>$this->CODEvidence];
         return DB::run($sql,$args);
     }
 
