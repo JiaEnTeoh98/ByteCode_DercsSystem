@@ -3,6 +3,7 @@ require_once '../../BusinessServiceLayer/model/ManageCustomerRequestModel.php';
 
 class ManageCustomerRequestController{
     
+    //to save customer request in database
     function RequestQuote(){
         $req = new ManageCustomerRequestModel();
         $req->Cus_ID = $_SESSION['Cus_ID'];
@@ -19,12 +20,14 @@ class ManageCustomerRequestController{
         }
     }
 
+    //view all the quotation waiting for staff to accept
     function viewAllQuote(){
         $req = new ManageCustomerRequestModel();
         //$req->Quotation_ID = $_SESSION['Quotation_ID'];
         return $req->viewAllQuotation();
     }
 
+    //customer can view their quotation
     function CviewQuote($Cus_ID){
         $req = new ManageCustomerRequestModel();
         $req->Cus_ID = $_SESSION['Cus_ID'];
@@ -32,12 +35,14 @@ class ManageCustomerRequestController{
         
     }
 
+    //for staff to view the specific quotation from the list
     function viewSpeQuote($Quotation_ID){
         $req = new ManageCustomerRequestModel();
         $req->Quotation_ID = $Quotation_ID;
         return $req->viewSpeQuotation();
     }
 
+    //for staff to accept quotation
     function acceptQuote(){
         $req = new ManageCustomerRequestModel();
         $req->Quotation_ID = $Quotation_ID;
@@ -49,6 +54,7 @@ class ManageCustomerRequestController{
         }
     }
 
+    //for staff to reject quotation
     function rejectQuote(){
         $req = new ManageCustomerRequestModel();
         $req->Quotation_ID = $Quotation_ID;
@@ -60,6 +66,7 @@ class ManageCustomerRequestController{
         }
     }
 
+    //staff will need to generate a quotation (item details and price)
     function generateQuote($Quotation_ID){
         $req = new ManageCustomerRequestModel();
         $req->Quotation_ID = $_POST['Quotation_ID'];
