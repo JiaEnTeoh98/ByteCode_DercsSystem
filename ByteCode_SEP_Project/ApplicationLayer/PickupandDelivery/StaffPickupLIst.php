@@ -67,7 +67,7 @@
                         <td><?=$row['CustAddress']?></td>
                         <form action="" method="POST">
                             
-                            <td><i style="font-size:20px;background-color:#BCBDFD" type="button" onclick="location.href='StaffPikcupInvoice.php?Quotation_ID=<?=$row['Quotation_ID']?>'">Print</i>
+                            <td><i style="font-size:20px;background-color:#BCBDFD" type="button" onclick="location.href='StaffPickupInvoice.php?Quotation_ID=<?=$row['Quotation_ID']?>'">Print</i>
                             
                             </td>
                         </form>
