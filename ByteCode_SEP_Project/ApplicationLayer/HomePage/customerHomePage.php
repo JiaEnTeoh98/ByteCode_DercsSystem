@@ -1,3 +1,4 @@
+<?php include '../../src/navbar1.php';?>
 <?php
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
@@ -76,28 +77,49 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+
+  td {
+  text-align: center;
+}
 }
 </style>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=customer&Cus_ID=<?=$Cus_ID?>">My Account</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div> 
-</div>
 
-
-
+<br><br>
+<center>
+        <table >
+        <tr>
+        
+        <!--<div class="row" style="text-align: center;">-->
+        <td><a href="../CustomerRequest/CustomerRequest.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/CustQuote.png" width="200px" height="150px"></a></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><a href="../PickupandDelivery/CustPickupandDelivery.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
+        </tr>
+        <tr>
+        <td><a href="../CustomerRequest/CustomerRequest.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>Request Quotation</h4></a></td>
+        <td></td><td></td>
+        <td><a href="../PickupandDelivery/CustPickupandDelivery.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>View Pickup and Delivery Status</h4></a></td>
+        
+        <tr><br></tr><tr></tr><tr></tr><tr></tr>
+        </tr>
+        <br>
+        <tr>
+        <td><a href="../ItemRepairingStatus/UpdateItemStatus.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
+        <td></td><td></td>
+        <td><a href="../CustomerRequest/ViewAllQuotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/money.png" width="200px" height="150px"></a></td>
+        
+        </tr>
+        <tr>
+        <td><a href="../ItemRepairingStatus/UpdateItemStatus.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>View Repairing Status</h4></a></td>
+        <td></td><td></td>
+        <td><a href="../CustomerRequest/ViewAllQuotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>Manage Payment</h4></a></td>
+        </tr>
+        </table>
+  </center>
+           
+       
 </body>
 </html>
 
