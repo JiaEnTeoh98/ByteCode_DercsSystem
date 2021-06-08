@@ -80,7 +80,7 @@
                         <br>
                         <input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
                             <button type="submit" name="generate" class="rbutton">Generate</button>&emsp;
-                            <button type="submit"  name="cancel" class="rbutton">Cancel</button>
+                            <button type="reset"  name="cancel" class="rbutton">Cancel</button>
 
                             
                         </td>
