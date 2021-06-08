@@ -76,12 +76,7 @@ class PickupandDeliveryController{
         $req->Quotation_ID = $Quotation_ID;
         return $req->viewSpePickup();
     }
-    function viewSpePick($Quotation_ID){
-        $req = new PickupandDeliveryModel();
-        $req->Quotation_ID = $Quotation_ID;
-        return $req->viewSpePickup();
-    }
-
+    
     //for rider to accept pickup
     function acceptPick(){
         $req = new PickupandDeliveryModel();
