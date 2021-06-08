@@ -63,6 +63,7 @@ class ManageCustomerRequestModel{
         return $count;
     }
 
+    //to view all quoatation for particular customer
     function viewAll(){
         $sql = "select * from quotation where Cus_ID=:Cus_ID ";
         $args = [':Cus_ID'=>$this->Cus_ID];
