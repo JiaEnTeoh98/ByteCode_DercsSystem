@@ -61,7 +61,7 @@
     <body>
 
         <center>
-        <h3 style="margin-left: 1em; margin-top: 1em; text-decoration: underline;">Customer View Food Service</h3>
+        <h3 style="margin-left: 1em; margin-top: 1em; text-decoration: underline;">Payment Page</h3>
         <br><br>
 
             <div style="margin-left: 1.5em;">
