@@ -63,6 +63,14 @@ class ManageCustomerRequestModel{
         return $count;
     }
 
+    function viewAll(){
+        $sql = "select * from quotation where Cus_ID=:Cus_ID ";
+        $args = [':Cus_ID'=>$this->Cus_ID];
+        return DB::run($sql, $args);
+    }
+
+
+
     
 
     /* function deleteItem(){

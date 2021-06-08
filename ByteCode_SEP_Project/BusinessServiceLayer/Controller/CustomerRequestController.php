@@ -84,6 +84,12 @@ class ManageCustomerRequestController{
         }
     }
 
+    function viewAll(){
+        $req = new ManageCustomerRequestModel();
+        $req->Cus_ID = $_SESSION['Cus_ID'];
+        return $req->viewAll();
+    }
+
    
 
 
