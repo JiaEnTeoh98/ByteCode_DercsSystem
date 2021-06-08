@@ -9,7 +9,7 @@ $pay = new PaymentController();
 
 
 //clear cust cart
-$pay->updateCart();
+$pay->updateSuccess();
 
 ?>
 <html>

@@ -7,6 +7,9 @@ session_start();
 
 $pay = new PaymentController();
 
+//clear cust cart
+$pay->updatePending();
+
 
 ?>
 <html>
