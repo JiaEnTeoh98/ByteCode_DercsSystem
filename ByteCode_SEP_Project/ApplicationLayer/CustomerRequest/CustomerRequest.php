@@ -4,14 +4,9 @@
     session_start();
 
     $req = new ManageCustomerRequestController();
-    
 
     if(isset($_POST['requestQ'])){
         $req->RequestQuote();
-    }
-
-    if(isset($_POST['viewQ'])){
-        $req->CViewQuote();
     }
 
 
@@ -26,7 +21,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/3cc6771f24.js"></script>
-        
+
         <style>
              th, td {
         padding: 5px;
@@ -68,14 +63,14 @@
         <h3 style="margin-left: 1em; margin-top: 1em; text-decoration: underline;">CUSTOMER REQUEST</h3>
         <br><br>
 
-    
+
         <br>
         <form action="" method="post" enctype="multipart/form-data">
         <table style="border: 1px white;
             border-collapse: collapse;padding: 7px;
         vertical-align: top;
         text-align: left;">
-        
+
         <tr>
             <td>Model</td>
             <td>:</td>
@@ -103,21 +98,18 @@
         </tr>
         </table>
         <table>
-        </form>
         <tr>
         <td>
-        
-        <form action="" method="POST">
-        <i style="font-size:24px;background-color:#279EFC" type="button" onclick="location.href='ViewQuotation.php'">View Quotation</i>
+
+        <button type="submit" name="viewQ" value="View Quotation" class="Vbutton" disabled>View Quotation
         </td>
         <td><button type="submit" name="requestQ" value="requestQ" class="Rbutton">Request Quotation
         </td>
         <td><button type="submit" name="Cancel" value="Cancel" class="Rbutton">Cancel
         </td>
-        
 
        </form>
-       
+
 
     </center> 
     </body>

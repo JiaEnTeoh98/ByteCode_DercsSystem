@@ -4,7 +4,7 @@
 
     session_start();
 
-    $req = new ManageCustomerRequestController();
+    $req = new PaymentController();
     $data = $req->viewAll();
 
     $pay = new PaymentController();
@@ -12,17 +12,27 @@
         $pay->add();
     }
 
+    $pay = new PaymentController();
+    if(isset($_POST['updatePending'])){
+        $pay->updatePending();
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Payment Payment Interface</title>
+    <title>Customer Checkout</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
         <link rel="stylesheet" type="text/css" href="ExternalCSS/topnav.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/3cc6771f24.js"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AS2yPDgeIthzwW_hXhYjaTTLLBI6o1f8vjV2H8KcgaPt_S8EP-xc59heqBhazRhqMvdWlYkg17-tYbq8&currency=MYR"></script>
+        
+        <script>paypal.Buttons().render('body');</script>
+
         <style>
             td {
                 text-align: center;
@@ -64,7 +74,9 @@
                         <td width="100"><center><b>Device Symptom</b></center></td>
                         <td colspan="2" width="100"><center><b>Action</b></center></td>
                     </tr>
-                    <?php foreach($data as $row){ ?>
+                    <?php 
+                    
+                    foreach($data as $row){ ?>
                     <form action="" method="POST">
                     <tr>
                     
@@ -72,117 +84,51 @@
                         <td><input type="text" name="DeviceColor" value="<?=$row['DeviceColor']?>" class="noborder" readonly></td>
                         <td><input type="text" name="DeviceDamage" value="<?=$row['DeviceDamage']?>" class="noborder" readonly></td>
                         <td><input type="text" name="DeviceSymptom" value="<?=$row['DeviceSymptom']?>" class="noborder" readonly></td>
+                        
+                                <?php
+                                    $PaymentTotal =$row['Sercharge']+$row["ItemPrice"];
+
+                                ?>
+                        <td><input type="text" name="PaymentTotal" value="<?=number_format($PaymentTotal,2); ?>"></td>
                         <td style="text-align: center;">
                         <input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
                                 <button type="submit" name="add"><i class="fa fa-check" aria-hidden="true"></i> &nbsp;Confirm </button>
+                                <input type="button" onclick="window.location.href='PaymentPending.php';" name="updatePending" value="COD">
                         </td>
-                    </form>
                     <?php } ?>
                     </tr>
                 </table>
-                <p>Pay By:</p>
-            <div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
-    <div class="payment-method-title field choice">
-        <input type="radio"
-               name="payment[method]"
-               class="radio"
-               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
-        <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
-    </div>
 
-    <div class="payment-method-content">
-        <p data-bind="html: getInstructions()"></p>   
-    <fieldset data-bind="attr: {class: 'fieldset payment items ' + getCode(), id: 'payment_form_' + getCode()}"> 
-    <div class="field _required">
-        <label data-bind="attr: {for: getCode() + '_codfield1'}" class="label">
-        </label>
-        <div class="control">
-            <input data-validate="{'required-entry':true}" type="text" name="payment[codfield1]" class="input-text" value=""
-                   data-bind="attr: {
-                                    id: getCode() + '_codfield1',
-                                    title: $t('COD Field'),
-                                    'data-container': getCode() + '-codfield1',
-                                    'data-validate': JSON.stringify({'required':true})},
-                                    valueUpdate: 'keyup' "/>
-        </div>
-
-        <div class="control">
-             <select  data-validate="{'required-entry':true}" 
-                    data-bind="attr: {
-                       id: getCode() + '_codfield2',
-                      },
-                      options: optionsList(),
-                      optionsText: 'name',
-                      optionsValue:'id',
-                     optionsCaption: 'Choose...'">
-             </select>   
-        </div>
-    </div>
-    </fieldset>
-
-        <div class="payment-method-billing-address">
-        </div>      
-        <div class="checkout-agreements-block">
-        </div>
-        <div class="actions-toolbar">
-            <div class="primary">
-                <button class="action primary checkout"
-                        type="submit"
-                        data-bind="
-                        click: placeOrder,
-                        attr: {'title': $t('Place Order')},
-                        enable: (getCode() == isChecked()),
-                        css: {disabled: !isPlaceOrderActionAllowed()}
-                        "
-                        disabled>
-                    <span data-bind="i18n: 'Place Order'"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-        <div id="paypal-button-container"></div>
-        </div>
-        <script>
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    // This function sets up the details of the transaction, including the amount and line item details.
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                currency_code: 'MYR',
-                                value: '<?= $totalpricedelivery ?>',
-                            },
-                            shipping: {
-                                name: {
-                                    full_name: '<?= $address["custusername"]; ?>'
-                                },
-                                address: {
-                                    address_line_1: '<?= $address["custaddress1"]; ?>',
-                                    address_line_2: '<?= $address["custaddress2"]; ?>',
-                                    admin_area_2: '<?= $address["custaddress3"]; ?>',
-                                    admin_area_1: '<?= $address["custaddress4"]; ?>',
-                                    postal_code: '',
-                                    country_code: 'MY'
-                                }
-                            }
-                        }]
-                    });
+<center>
+                <div id="paypal-button-container"></div>
+                    <script>
+                      paypal.Buttons({
+                        createOrder: function(data, actions) {
+                  // This function sets up the details of the transaction, including the amount and line item details.
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        currency_code: 'MYR',
+                        value: '<?= $PaymentTotal ?>'
+                      }
+                    }]
+                  });
+                },
+                onError: function(error) {
+                  console.log(error);                      
                 },
                 onApprove: function(data, actions) {
-                    // This function captures the funds from the transaction.
-                    return actions.order.capture().then(function(details) {
-                        // This function shows a transaction success message to your buyer.
-                        alert('Transaction Successful!');
-                        window.location.href = "./paymentSuccessful.php?custID=<?=$_SESSION['custID']?>";
-
-
-                    });
-                }
+                // This function captures the funds from the transaction.
+                return actions.order.capture().then(function(details) {
+                  // This function shows a transaction success message to your buyer.
+                  alert('Transaction completed by ' + details.payer.name.given_name);
+                  window.location.href = "../../ApplicationLayer/PaymentInterface/PaymentSuccesful.php?CUS_ID=<?=$_SESSION['CUS_ID']?>"                  
+                });
+              }
             }).render('#paypal-button-container');
-            //This function displays Smart Payment Buttons on your web page.
-        </script>
+          </script>
             </div>
+            </form>
     </center> 
     </body>
 </html>
