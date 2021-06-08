@@ -68,7 +68,7 @@
                         <td><input type="text" name="DeviceSymptom" value="<?=$row['DeviceSymptom']?>" class="noborder" readonly></td>
                         <td style="text-align: center;">
                             <input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
-                            <input type="button" onclick="location.href='PaymentInterface.php?Quotation_ID=<?=$row['Quotation_ID']?>'" value="Pay">
+                            <input type="button" onclick="location.href='../PaymentInterface/PaymentInterface.php?Quotation_ID=<?=$row['Quotation_ID']?>'" value="Pay">
                         </td>
 
                         
