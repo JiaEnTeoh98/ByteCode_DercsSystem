@@ -71,5 +71,105 @@
 			}
 		}
 
+		//staff - manage customer
+
+		function custlist(){
+			$customer = new ManageAccountModel();
+			return $customer-> custlist();
+		}
+
+		function updatecustdata($Cus_ID){
+			$customer = new ManageAccountModel();
+			$customer->Staff_ID = $_POST['Staff_ID'];
+			$customer->Cus_ID = $_POST['Cus_ID'];
+			$customer->CustName = $_POST['CustName'];
+			$customer->CustUName = $_POST['CustUName'];
+			
+			$customer->CustEmail = $_POST['CustEmail'];
+			$customer->CustPhoneNo = $_POST['CustPhoneNo'];
+			$customer->CustAddress = $_POST['CustAddress'];
+			$customer->CustAccStatus = $_POST['CustAccStatus'];
+
+			if($customer->updatecustdata()){
+				$message = "Update Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$_POST['Staff_ID']."&action=view&Cus_ID=".$_POST['Cus_ID']."';</script>";
+			}
+		}
+
+		function updatecustStatus($Cus_ID){
+			$Cus_ID=$_POST['Cus_ID'];
+			$Staff_ID= $_POST['Staff_ID'];
+			$customer = new ManageAccountModel();
+			$customer->Staff_ID = $_POST['Staff_ID'];
+			$customer->Cus_ID = $_POST['Cus_ID'];
+			$customer->CustAccStatus = $_POST['CustAccStatus'];
+
+			if($customer->updateStatcust()){
+				$message = "Update Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$Staff_ID."&action=view&Cus_ID=".$Cus_ID."';</script>";
+			}
+		}
+
+		function deletecust($Cus_ID){
+			$customer = new ManageAccountModel();
+			$customer->Staff_ID = $_POST['Staff_ID'];
+			$customer->Cus_ID = $_POST['Cus_ID'];
+
+			if($customer->deletecust()){
+				$message = "Delete Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
+			}
+		}
+
+		//staff - manage rider
+
+		
+		function riderlist(){
+			$rider = new ManageAccountModel();
+			return $rider-> riderlist();
+		}
+
+		function updateriderdata($Rider_ID){
+			$rider = new ManageAccountModel();
+			$rider->Staff_ID = $_POST['Staff_ID'];
+			$rider->Rider_ID = $_POST['Rider_ID'];
+			$rider->RiderName = $_POST['RiderName'];
+			$rider->RiderUName = $_POST['RiderUName'];
+			$rider->RiderEmail = $_POST['RiderEmail'];
+			$rider->RiderPhoneNo = $_POST['RiderPhoneNo'];
+			$rider->RiderMyKad = $_POST['RiderMyKad'];
+			$rider->RiderAccStatus = $_POST['RiderAccStatus'];
+
+			if($rider->updateriderdata()){
+				$message = "Update Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$_POST['Staff_ID']."&action=view&Rider_ID=".$_POST['Rider_ID']."';</script>";
+			}
+		}
+
+		function updateriderStatus($Rider_ID){
+			$Rider_ID=$_POST['Rider_ID'];
+			$Staff_ID= $_POST['Staff_ID'];
+			$rider = new ManageAccountModel();
+			$rider->Staff_ID = $_POST['Staff_ID'];
+			$rider->Rider_ID = $_POST['Rider_ID'];
+			$rider->RiderAccStatus = $_POST['RiderAccStatus'];
+
+			if($rider->updateStatrider()){
+				$message = "Update Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$Staff_ID."&action=view&Rider_ID=".$Rider_ID."';</script>";
+			}
+		}
+
+		function deleterider($Rider_ID){
+			$rider = new ManageAccountModel();
+			$rider->Staff_ID = $_POST['Staff_ID'];
+			$rider->Rider_ID = $_POST['Rider_ID'];
+
+			if($rider->deleterider()){
+				$message = "Delete Successfuly";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
+			}
+		}
+
     }
 ?>
