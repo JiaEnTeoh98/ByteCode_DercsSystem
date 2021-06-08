@@ -71,17 +71,12 @@ class PickupandDeliveryController{
     }
 
     //for rider to view specific quotation details waiting to accept pickup
-    function viewSpeDel($Quotation_ID){
-        $req = new PickupandDeliveryModel();
-        $req->Quotation_ID = $Quotation_ID;
-        return $req->viewSpeDelivery();
-    }
     function viewSpePick($Quotation_ID){
         $req = new PickupandDeliveryModel();
         $req->Quotation_ID = $Quotation_ID;
         return $req->viewSpePickup();
     }
-
+    
     //for rider to accept pickup
     function acceptPick(){
         $req = new PickupandDeliveryModel();

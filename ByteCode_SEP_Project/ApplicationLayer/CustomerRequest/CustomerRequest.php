@@ -105,7 +105,7 @@
         </td>
         <td><button type="submit" name="requestQ" value="requestQ" class="Rbutton">Request Quotation
         </td>
-        <td><button type="submit" name="Cancel" value="Cancel" class="Rbutton">Cancel
+        <td><button type="reset" name="Cancel" value="Cancel" class="Rbutton">Cancel
         </td>
 
        </form>
