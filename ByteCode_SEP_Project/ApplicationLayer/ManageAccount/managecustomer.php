@@ -1,4 +1,4 @@
-
+<?php include '../../src/navbar.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
@@ -13,25 +13,8 @@ if($action=='list'){
 	$Cus_ID = $_GET['Cus_ID'];
 	$customer = new ManageAccountController();
 	$custview = $customer->custview($Cus_ID);
-}elseif($action=='edit'){<?php include '../../src/navbar.php';?>
-	<?php 
-	require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
+}elseif($action=='edit'){
 	
-	session_start();
-	$AccType = 'staff';
-	
-	$Staff_ID = $_GET['Staff_ID'];
-	$action = $_GET['action'];
-	if($action=='list'){
-		//
-		$customer = new ManageAccountController();
-		$custlist = $customer->custlist();
-	}elseif($action=='view'){
-		$Cus_ID = $_GET['Cus_ID'];
-		$customer = new ManageAccountController();
-		$custview = $customer->custview($Cus_ID);
-	}elseif($action=='edit'){
-		$Cus_ID = $_GET['Cus_ID'];
 		$customer = new ManageAccountController();
 		$custview = $customer->custview($Cus_ID);
 	}
