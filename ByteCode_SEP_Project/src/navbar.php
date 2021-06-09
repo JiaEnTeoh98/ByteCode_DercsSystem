@@ -1,4 +1,21 @@
+<?php 
+require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
+session_start();
+$AccType = $_GET['AccType'];
+if($AccType=='customer'){
+	$Cus_ID = $_GET['Cus_ID'];
+
+}elseif($AccType=='rider'){
+	$Rider_ID = $_GET['Rider_ID'];
+
+}elseif($AccType=='staff'){
+	$Staff_ID = $_GET['Staff_ID'];
+
+}
+
+		
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,17 +86,37 @@ body {
 </head>
 <body>
 
+
 <div class="navbar">
   <a href="#home">Home</a>
   <a href="userLogin.php"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
   <div class="dropdown">
+  <?php if($AccType=='customer'){ ?>
     <button class="dropbtn">My Details
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
+
       <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
       
-    </div>
+    </div><?php }elseif($AccType=='rider'){ ?>
+      <button class="dropbtn">My Details
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
+      
+    </div><?php }elseif($AccType=='staff'){ ?>
+      <button class="dropbtn">Manage Account
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      			<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
+      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
+      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
+    		</div>
+        <?php } ?>
   </div> 
 
 

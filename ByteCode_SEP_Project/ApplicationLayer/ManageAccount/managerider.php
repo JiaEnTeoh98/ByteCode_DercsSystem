@@ -1,8 +1,9 @@
-<?php include '../../src/navbar1.php';?>
+<?php include '../../src/navbar.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
 session_start();
+$AccType = 'staff';
 $Staff_ID = $_GET['Staff_ID'];
 $action = $_GET['action'];
 if($action=='list'){
@@ -67,6 +68,10 @@ if(isset($_POST['deleteCust'])){
 				background-color: #C3E4F6;
 				text-align: center;
 				width: 250px;
+			}
+			td {
+				background-color: white;
+
 			}
 
             .button {
@@ -383,7 +388,7 @@ if(isset($_POST['deleteCust'])){
 									</tr>
 								</table>
 								<br>
-								<a href="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?php echo $Staff_ID?>&action=edit&Rider_ID=<?php echo $row['Rider_ID'];?>" class="button">Edit</a>								
+								<a style="margin-left: 40%;" href="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?php echo $Staff_ID?>&action=edit&Rider_ID=<?php echo $row['Rider_ID'];?>" class="button">Edit</a>								
 								<a href="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?php echo $Staff_ID?>&action=delete&Rider_ID=<?php echo $row['Rider_ID'];?>" class="Delete">Delete</a>
 								<br></br>
                                 <?php
@@ -482,7 +487,7 @@ if(isset($_POST['deleteCust'])){
 								    <div class="form-style-6">
 									    <input type="hidden" name="Rider_ID" value="<?php echo $row['Rider_ID']; ?>" hidden>
 										<input type="hidden" name="Staff_ID" value="<?php echo $Staff_ID; ?>" hidden>
-									    <button type="submit" name="SaveUpdate" class="button">Save</button>
+									    <button style="margin-left: 50%;" type="submit" name="SaveUpdate" class="button">Save</button>
 								    </div>
 							    </form>
                                 <?php

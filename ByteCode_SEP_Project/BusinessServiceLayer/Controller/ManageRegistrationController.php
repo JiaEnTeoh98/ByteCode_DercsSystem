@@ -30,7 +30,7 @@ class ManageRegistrationController{
             }
             $_SESSION["CustUName"] = $_POST['CustUName'];
             echo "<script>alert('Login Succesful! Welcome to DERCS');
-            window.location = '../HomePage/customerHomePage.php?Cus_ID=".$_SESSION['Cus_ID']."';</script>"; 
+            window.location = '../HomePage/customerHomePage.php?AccType=customer&Cus_ID=".$_SESSION['Cus_ID']."';</script>"; 
         }
         else {
             $message = "Invalid username and password! Please try again!!!";
@@ -66,7 +66,7 @@ class ManageRegistrationController{
             }
             $_SESSION["RiderUName"] = $_POST['RiderUName'];
             echo "<script>alert('Login Succesful! Welcome to DERCS');
-            window.location = '../HomePage/riderHomePage.php?Rider_ID=".$_SESSION['Rider_ID']."';</script>"; 
+            window.location = '../HomePage/riderHomePage.php?AccType=rider&Rider_ID=".$_SESSION['Rider_ID']."';</script>"; 
         }
         else {
             $message = "Invalid username and password! Please try again!!!";
@@ -88,7 +88,7 @@ class ManageRegistrationController{
             }
             $_SESSION["StaffUName"] = $_POST['StaffUName'];
             echo "<script>alert('Login Succesful! Welcome to DERCS');
-            window.location = '../HomePage/staffHomePage.php?Staff_ID=".$_SESSION['Staff_ID']."';</script>";  
+            window.location = '../HomePage/staffHomePage.php?AccType=staff&Staff_ID=".$_SESSION['Staff_ID']."';</script>";  
         }
         else {
             $message = "Invalid username and password! Please try again!!!";

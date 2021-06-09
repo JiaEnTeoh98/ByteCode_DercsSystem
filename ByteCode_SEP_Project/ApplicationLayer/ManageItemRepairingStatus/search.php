@@ -1,4 +1,3 @@
-<?php include '../../src/navbar1.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ItemUpdateController.php';
 
@@ -6,10 +5,6 @@ session_start();
 //$Staff_ID = $_GET['Staff_ID'];
 $quotation = new ItemUpdateController();
 
-if(isset($_POST["editItem"])){
-  $Quotation_ID = $_POST["Quotation_ID"];
-  $quotation->editItem($id);
-}
 
 $quotationlist = $quotation->quotationlist();
 
@@ -130,20 +125,6 @@ $quotationlist = $quotation->quotationlist();
 <body>
 <center>
 
-<!--<div class="search">
-<br><br>
-<form action='' method='POST' name='form_filter'>    
-
-    <tr><b>Search</b></tr>
-    <tr>
-    <td><input type='text' name='searchval' id='searchval' placeholder='Enter id here...' size='50'></td>
-    </tr>
-    
-</form>
-</div>
-<br><br>
-
-<div id="result"></div> -->
 
 <br><br>
 <font color="white">
@@ -156,54 +137,51 @@ $quotationlist = $quotation->quotationlist();
 
 <table class="table" id="myTable" style="font-size: 15px; ">
 
-								<thead >
-									<tr>
-										<th style="width: 30px;">
-											<h3>Quotation ID</h3>
-										</th >
-										<th >
-											<h3>Customer Name</h3>
-										</th >
-                                        <th style="width: 20%;">
-											<h3>Item</h3>
-										</th >
-										<th style="width: 30%;">
-											<h3>Action</h3>
-										</th >
-									</tr>
-
-								</thead>
-
-								<?php 
-							        foreach ($quotationlist as $row) {
-							    ?>
-								<tr>
-                                <td style="padding-left: 15px;">
-										<?php echo $row['Quotation_ID']; ?>
-										
-									</td>
-									<td style="padding-left: 15px;">
-										<?php echo $row['CustName']; ?>
-										
-									</td>
-                                    <td style="padding-left: 15px;">
-										<?php echo $row['DeviceModel']; ?>
-										
-									</td>
-									<td style="text-align: center;">
-                  <form action="" method="POST">
-            <center>
-                <input type="hidden" name="Quotation_ID" value="<php echo $row['Quotation_ID']; ?>"/>
-                <button type="submit" name="editItem" class="button">Edit Item</button>
-            </center>
-        </form>
-									</td>
-								</tr>
-								<?php 
-								
-								}?>
-                            </table>
-
+				<thead >
+					<tr>
+						<th style="width: 30px;">
+							<h3>Quotation ID</h3>
+						</th >
+						<th >
+							<h3>Customer Name</h3>
+						</th >
+		                <th style="width: 20%;">
+							<h3>Item</h3>
+						</th >
+						<th style="width: 30%;">
+							<h3>Action</h3>
+						</th >
+							
+				</tr>		
+				<?php 
+			        foreach ($quotationlist as $row) {
+			    ?>
+				<tr>
+		        <td style="padding-left: 15px;">
+						<?php echo $row['Quotation_ID']; ?>
+						
+					</td>
+					<td style="padding-left: 15px;">
+						<?php echo $row['CustName']; ?>
+						
+					</td>
+		            <td style="padding-left: 15px;">
+						<?php echo $row['DeviceModel']; ?>
+						
+					</td>
+					<td style="text-align: center;">
+                  		<form action="" method="POST">
+            			<center>
+                			<input type="hidden" name="Quotation_ID" value="<php echo $row['Quotation_ID']; ?>"/>
+                			<button type="submit" formaction="../../ApplicationLayer/ManageItemRepairingStatus/editItem.php?Quotation_ID=<?=$row['Quotation_ID']?>" class="button">View</button>
+            			</center>
+       					 </form>
+					</td>
+				</tr>
+				<?php 
+				
+				}?>
+                </table>
 <center>
 </body>
 
@@ -229,34 +207,3 @@ function myFunction() {
   }
 }
 </script>
-
-<!--<script>
-$(document).ready(function(){
-
- load_data();
-
- function load_data(query)
- {
-  $.ajax({
-   url:"fetch.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data)
-   {
-    $('#result').html(data);
-   }
-  });
- }
- $('#searchval').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   load_data(search);
-  }
-  else
-  {
-   load_data();
-  }
- });
-});
-</script>-->

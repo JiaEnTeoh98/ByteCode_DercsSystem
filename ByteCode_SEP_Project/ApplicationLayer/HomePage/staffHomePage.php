@@ -1,4 +1,4 @@
-<?php include '../../src/navbar1.php';?>
+<?php include '../../src/navbar.php';?>
 <?php
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
@@ -93,7 +93,7 @@ body {
         <tr>
         
         <!--<div class="row" style="text-align: center;">-->
-        <td><a href="../ManageAccount/managecustomer.php?" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
+        <td><a href="../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><a href="../PickupandDelivery/StaffPickupandDelivery.php?" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
         </tr>

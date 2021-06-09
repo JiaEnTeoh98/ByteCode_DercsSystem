@@ -1,4 +1,4 @@
-<?php include '../../src/navbar1.php';?>
+<?php include '../../src/navbar.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ItemUpdateController.php';
 
@@ -124,20 +124,7 @@ $quotationlist = $quotation->quotationlist();
 	</head>
 
 	<body>	
-	<div class="navbar">
-  		<a href="../../ApplicationLayer/HomePage/staffHomePage.php?Staff_ID=<?=$Staff_ID?>">Home</a>
-  		<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-  		<div class="dropdown">
-    		<button class="dropbtn">Manage Account 
-      		<i class="fa fa-caret-down"></i>
-    		</button>
-    		<div class="dropdown-content">
-      			<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
-    		</div>
-  		</div> 
-	</div>
+	
 
 		<!--    utk content    -->
 		<div class="container-fluid content mb-5">
