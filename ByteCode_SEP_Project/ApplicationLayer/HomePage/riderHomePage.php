@@ -1,9 +1,10 @@
+<?php include '../../src/navbar1.php';?>
 <?php
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
 $Rider_ID = $_GET['Rider_ID'];
-$AccType = 'customer';
+$AccType = 'rider';
 
 ?>
 
@@ -12,6 +13,7 @@ $AccType = 'customer';
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="manageAcc.css">
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -75,27 +77,32 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+
+  td {
+  text-align: center;
+}
 }
 </style>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=rider&Rider_ID=<?=$Rider_ID?>">My Account</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div> 
-</div>
 
-
+<br><br>
+<center>
+        <table >
+        <tr>
+        
+        <!--<div class="row" style="text-align: center;">-->
+        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php>" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php>" style="color: black; text-decoration: none;"><h4>Handle Pickup and Delivery</h4></a></td>
+        </tr>
+        </table>
+  </center>
+           
+       
 </body>
 </html>
 
