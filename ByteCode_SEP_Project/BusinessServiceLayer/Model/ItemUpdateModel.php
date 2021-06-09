@@ -11,8 +11,9 @@
 
         function quotationlist()
         {
-            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID";
-            return DB::run($sql);
+            $sql = "select * from quotation inner join customer on quotation.Cus_ID=customer.Cus_ID";
+            $args = [':Cus_ID' => $this->Cus_ID];
+            return DB::run($sql,$args);
         }
         
         function searchcust(){
