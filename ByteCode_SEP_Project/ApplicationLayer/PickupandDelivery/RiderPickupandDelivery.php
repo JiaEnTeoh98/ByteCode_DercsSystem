@@ -1,3 +1,4 @@
+<?php include '../../src/navbar1.php';?>
 <html>
     <head>
         <title>Rider Menu</title>

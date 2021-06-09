@@ -3,7 +3,7 @@
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
-$Cus_ID = $_GET['Staff_ID'];
+
 $AccType = 'staff';
 
 ?>
@@ -93,12 +93,12 @@ body {
         <tr>
         
         <!--<div class="row" style="text-align: center;">-->
-        <td><a href="../ManageItemRepairingStatus/managequotation.php?Staff_ID=<?=$_SESSION['Staff_ID']?>" style="color: black; text-decoration: none;"><img src="Image/CustQuote.png" width="200px" height="150px"></a></td>
+        
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><a href="../PickupandDelivery/StaffPickupandDelivery.php?" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
         </tr>
         <tr>
-        <td><a href="../ManageItemRepairingStatus/managequotation.php?Staff_ID=<?=$_SESSION['Staff_ID']?>" style="color: black; text-decoration: none;"><h4>Manage Quotation</h4></a></td>
+        
         <td></td><td></td>
         <td><a href="../PickupandDelivery/StaffPickupandDelivery.php?" style="color: black; text-decoration: none;"><h4>Staff Pickup and Delivery Status</h4></a></td>
         
@@ -106,15 +106,15 @@ body {
         </tr>
         <br>
         <tr>
-        <td><a href="../PickupandDelivery/StaffPickupandDelivery.php?Staff_ID=<?=$_SESSION['Staff_ID']?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
+        <td><a href="../CustomerRequest/RequestQuotationList.php" style="color: black; text-decoration: none;"><img src="Image/CustQuote.png" width="200px" height="150px"></a></td>
         <td></td><td></td>
-        <td><a href="../PickupandDelivery/StaffPickupandDelivery.php?Staff_ID=<?=$_SESSION['Staff_ID']?>" style="color: black; text-decoration: none;"><img src="Image/money.png" width="200px" height="150px"></a></td>
+        <td><a href="../ManageItemRepairingStatus/quotationCust.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
         
         </tr>
         <tr>
-        <td><a href="../ItemRepairingStatus/UpdateItemStatus.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>View Repairing Status</h4></a></td>
+        <td><a href="../CustomerRequest/RequestQuotationList.php" style="color: black; text-decoration: none;"><h4>View Quotation Request</h4></a></td>
         <td></td><td></td>
-        <td><a href="../CustomerRequest/ViewAllQuotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><h4>Manage Payment</h4></a></td>
+        <td><a href="../ManageItemRepairingStatus/managequotation.php" style="color: black; text-decoration: none;"><h4>Update Repairing Status</h4></a></td>
         </tr>
         </table>
   </center>

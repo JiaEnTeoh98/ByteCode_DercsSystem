@@ -3,7 +3,7 @@
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
-$Rider_ID = $_GET['Rider_ID'];
+
 $AccType = 'rider';
 
 ?>
@@ -93,11 +93,11 @@ body {
         <tr>
         
         <!--<div class="row" style="text-align: center;">-->
-        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php>" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
+        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php" style="color: black; text-decoration: none;"><img src="Image/pickup.jpg" width="200px" height="150px"></a></td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
-        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php>" style="color: black; text-decoration: none;"><h4>Handle Pickup and Delivery</h4></a></td>
+        <td><a href="../PickupandDelivery/RiderPickupandDelivery.php" style="color: black; text-decoration: none;"><h4>Handle Pickup and Delivery</h4></a></td>
         </tr>
         </table>
   </center>

@@ -1,3 +1,4 @@
+<?php include '../../src/navbar1.php';?>
 <?php
     require_once '../../BusinessServiceLayer/controller/CustomerRequestController.php';
 
