@@ -1,2 +1,2 @@
 <?php
-header("Location:ApplicationLayer/userProfileView/CusLogin.php");
+header("Location:ApplicationLayer/HomePage/MainPage.php");
