@@ -39,9 +39,6 @@ body {
   margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color:#8bc1de ;
-}
 
 .dropdown-content {
   display: none;
@@ -74,26 +71,17 @@ body {
 
 <div class="navbar">
   <a href="#home">Home</a>
+  <a href="userLogin.php"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
   <div class="dropdown">
-    <button class="dropbtn">Login
+    <button class="dropbtn">My Details
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../../ApplicationLayer/ManageRegistration/CustLogin.php">Customer</a>
-      <a href="../../ApplicationLayer/ManageRegistration/RiderLogin.php">Rider</a>
-      <a href="../../ApplicationLayer/ManageRegistration/StaffLogin.php">Staff</a>
+      <a href="../../ApplicationLayer/ManageAccount/managecustomer.php">Account</a>
+      
     </div>
   </div> 
 
-  <div class="dropdown">
-    <button class="dropbtn">Register
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="../../ApplicationLayer/ManageRegistration/CustRegister.php">Customer</a>
-      <a href="../../ApplicationLayer/ManageRegistration/RiderRegistration.php">Rider</a>
-    </div>
-</div>
 
 
 

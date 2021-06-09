@@ -1,4 +1,4 @@
-<?php include '../../src/navbar1.php';?>
+<?php include '../../src/navbar.php';?>
 <?php
 session_start();
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
@@ -34,7 +34,7 @@ body {
 }
 
 .dropdown {
-  float: left;
+  float: right;
   overflow: hidden;
 }
 
