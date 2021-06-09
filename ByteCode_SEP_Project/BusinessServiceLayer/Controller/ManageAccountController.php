@@ -92,7 +92,7 @@
 
 			if($customer->updatecustdata()){
 				$message = "Update Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$_POST['Staff_ID']."&action=view&Cus_ID=".$_POST['Cus_ID']."';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&Staff_ID=".$_POST['Staff_ID']."&action=view&Cus_ID=".$_POST['Cus_ID']."';</script>";
 			}
 		}
 
@@ -106,7 +106,7 @@
 
 			if($customer->updateStatcust()){
 				$message = "Update Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$Staff_ID."&action=view&Cus_ID=".$Cus_ID."';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&Staff_ID=".$Staff_ID."&action=view&Cus_ID=".$Cus_ID."';</script>";
 			}
 		}
 
@@ -117,7 +117,7 @@
 
 			if($customer->deletecust()){
 				$message = "Delete Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
 			}
 		}
 
@@ -142,7 +142,7 @@
 
 			if($rider->updateriderdata()){
 				$message = "Update Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$_POST['Staff_ID']."&action=view&Rider_ID=".$_POST['Rider_ID']."';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=".$_POST['Staff_ID']."&action=view&Rider_ID=".$_POST['Rider_ID']."';</script>";
 			}
 		}
 
@@ -156,7 +156,7 @@
 
 			if($rider->updateStatrider()){
 				$message = "Update Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$Staff_ID."&action=view&Rider_ID=".$Rider_ID."';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=".$Staff_ID."&action=view&Rider_ID=".$Rider_ID."';</script>";
 			}
 		}
 
@@ -167,7 +167,7 @@
 
 			if($rider->deleterider()){
 				$message = "Delete Successfuly";
-				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
+				echo "<script type='text/javascript'>alert('$message'); window.location = '../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=".$_POST['Staff_ID']."&action=list';</script>";
 			}
 		}
 

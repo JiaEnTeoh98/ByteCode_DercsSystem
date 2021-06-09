@@ -97,7 +97,7 @@ body {
     </button>
     <div class="dropdown-content">
 
-      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=customer&Cus_ID=<?=$Cus_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='rider'){ ?>
       <button class="dropbtn">My Details
@@ -105,7 +105,7 @@ body {
     </button>
     <div class="dropdown-content">
 
-      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=rider&Rider_ID=<?=$Rider_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='staff'){ ?>
       <button class="dropbtn">Manage Account

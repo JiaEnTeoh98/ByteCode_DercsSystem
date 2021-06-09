@@ -2,7 +2,6 @@
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
-session_start();
 $AccType = 'staff';
 $Staff_ID = $_GET['Staff_ID'];
 $action = $_GET['action'];
@@ -28,7 +27,7 @@ if(isset($_POST['riderview'])){
 if(isset($_POST['SaveUpdate'])){
 	$Rider_ID = $_POST['Rider_ID'];
 	$rider = new ManageAccountController();
-	$rideredit = $rider->updateriderdata($Rider_ID);
+	$rider->updateriderdata($Rider_ID);
 }
 
 //click ban button
@@ -204,27 +203,10 @@ if(isset($_POST['deleteCust'])){
 		</style>
 	</head>
 	<body>
-	<div class="navbar">
-	<a href="../../ApplicationLayer/HomePage/staffHomePage.php?Staff_ID=<?=$Staff_ID?>">Home</a>
-  	<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-  <div class="dropdown">
-    <button class="dropbtn">Manage Account 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-      <a href="../../ApplicationLayer/ManageAccount/managecustomer.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
-      <a href="../../ApplicationLayer/ManageAccount/managerider.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
-    </div>
-  </div> 
-</div>
-		<div class="container-fluid content mb-5">
-			<div class="col-lg-12 py-4" align="center">
-				<div class="col-lg  form-style-6">
-					<fieldset>
-						<legend>
-							<h1><strong>Customer Account</strong></h1>
-						</legend>
+	<br><br>
+						<legend><center>
+							<h1 style="color:white;"><strong>Rider Account</strong></h1>
+						</center></legend>
 						<?php 
 						    if($action=="list"){
 						?>
@@ -306,8 +288,8 @@ if(isset($_POST['deleteCust'])){
 										<form action="" method="POST">
 											<input type="hidden" name="Rider_ID" value="<?php echo $row['Rider_ID']; ?>" hidden>
 											<input type="hidden" name="Staff_ID" value="<?php echo $Staff_ID; ?>" hidden>
-											<button type="submit" formaction="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?=$Staff_ID?>&action=view&Rider_ID=<?=$row['Rider_ID']?>" class="button">View</button>
-											<button type="submit" formaction="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?=$Staff_ID?>&action=edit&Rider_ID=<?=$row['Rider_ID']?>" class="Ban">Edit</button>											
+											<button type="submit" formaction="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=<?=$Staff_ID?>&action=view&Rider_ID=<?=$row['Rider_ID']?>" class="button">View</button>
+											<button type="submit" formaction="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=<?=$Staff_ID?>&action=edit&Rider_ID=<?=$row['Rider_ID']?>" class="Ban">Edit</button>											
 											<button type="submit" class="Delete" name="deleteRider" onclick="return confirm('Confirm update account status for selected rider?')">Delete</a>
 										</form>
 									</td>
@@ -388,15 +370,15 @@ if(isset($_POST['deleteCust'])){
 									</tr>
 								</table>
 								<br>
-								<a style="margin-left: 40%;" href="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?php echo $Staff_ID?>&action=edit&Rider_ID=<?php echo $row['Rider_ID'];?>" class="button">Edit</a>								
-								<a href="../../ApplicationLayer/ManageAccount/managerider.php?Staff_ID=<?php echo $Staff_ID?>&action=delete&Rider_ID=<?php echo $row['Rider_ID'];?>" class="Delete">Delete</a>
+								<a style="margin-left: 40%;" href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=<?php echo $Staff_ID?>&action=edit&Rider_ID=<?php echo $row['Rider_ID'];?>" class="button">Edit</a>								
+								<a href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&Staff_ID=<?php echo $Staff_ID?>&action=delete&Rider_ID=<?php echo $row['Rider_ID'];?>" class="Delete">Delete</a>
 								<br></br>
                                 <?php
                                 }
 
 						    }elseif($action=="edit"){
                                 foreach ($riderview as $row) {
-                                    $Cus_ID=$row['Rider_ID'];
+                                    $Rider_ID=$row['Rider_ID'];
 						?>
 
 							<form action="" method="POST">
@@ -496,10 +478,7 @@ if(isset($_POST['deleteCust'])){
 						    }
 						?>
 						<br>
-					
-				</fieldset>
-			</div>
-		</div>
-	</div>
+
+			
 </body>
 </html>

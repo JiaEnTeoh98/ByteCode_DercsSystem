@@ -1,4 +1,4 @@
-<?php include '../../src/navbar.php';?>
+<?php include '../../src/navbar1.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
