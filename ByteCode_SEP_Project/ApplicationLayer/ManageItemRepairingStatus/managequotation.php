@@ -103,6 +103,10 @@ $quotationlist = $quotation->quotationlist();
 				width: 250px;
 			}
 
+			td {
+				background-color: white;
+			}
+
 			.button {
   				background-color: #4BB1C8;
   				border: none;

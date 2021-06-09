@@ -108,6 +108,10 @@ $quotationlist = $quotation->quotationlist();
 				width: 250px;
 			}
 
+			td {
+				background-color: white;
+			}
+
 			.button {
   				background-color: #4BB1C8;
   				border: none;
@@ -142,8 +146,13 @@ $quotationlist = $quotation->quotationlist();
 <div id="result"></div> -->
 
 <br><br>
-<b>Search</b>
+<font color="white">
+	<b>Search</b>
+</font>
+
 <input type="text" name="myinput" id="myInput" onkeyup="myFunction()" placeholder="Quotation ID.." title="Type in a name">
+
+<br><br>
 
 <table class="table" id="myTable" style="font-size: 15px; ">
 
