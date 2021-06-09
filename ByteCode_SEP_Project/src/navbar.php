@@ -113,8 +113,8 @@ body {
     </button>
     <div class="dropdown-content">
       			<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
+      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
+      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
     		</div>
         <?php } ?>
   </div> 

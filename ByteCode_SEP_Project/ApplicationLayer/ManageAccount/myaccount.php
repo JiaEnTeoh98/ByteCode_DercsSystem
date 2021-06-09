@@ -1,4 +1,4 @@
-<?php include '../../src/navbar1.php';?>
+<?php include '../../src/navbar.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
@@ -51,6 +51,11 @@ if($AccType=='customer'){
 				width: 250px;
 			}
 
+			td {
+				background-color: white;
+
+			}
+
 			.button {
   				background-color: #4BB1C8;
   				border: none;
@@ -62,6 +67,7 @@ if($AccType=='customer'){
   				font-size: 16px;
  				margin: 2px 2px;
   				cursor: pointer;
+				  margin-left: 50%;
 			}
 
 		</style>
@@ -139,9 +145,9 @@ if($AccType=='customer'){
 										</td>
 									</tr>
 								</table>
-								<br>
+								<br><center>
 								<a href="../../ApplicationLayer/ManageAccount/editaccount.php?AccType=customer&Cus_ID=<?=$Cus_ID?>" class="button">Edit</a>
-								<br></br>
+								</center><br></br>
 
 								<?php
 							}
