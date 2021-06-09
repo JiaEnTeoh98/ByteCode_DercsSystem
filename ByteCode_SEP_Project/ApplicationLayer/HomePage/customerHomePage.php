@@ -108,7 +108,7 @@ body {
         <tr>
         <td><a href="../ManageItemRepairingStatus/managequotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
         <td></td><td></td>
-        <td><a href="../ManageItemRepairingStatus/managequotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/money.png" width="200px" height="150px"></a></td>
+        <td><a href="../CustomerRequest/ViewAllQuotation.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: black; text-decoration: none;"><img src="Image/money.png" width="200px" height="150px"></a></td>
         
         </tr>
         <tr>
