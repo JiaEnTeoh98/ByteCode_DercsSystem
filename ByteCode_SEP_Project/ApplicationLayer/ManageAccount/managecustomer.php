@@ -3,7 +3,7 @@
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
 session_start();
-$Staff_ID = $_GET['Staff_ID'];
+$Cus_ID = $_GET['Cus_ID'];
 $action = $_GET['action'];
 if($action=='list'){
 	//

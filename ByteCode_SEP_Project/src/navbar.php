@@ -77,7 +77,7 @@ body {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../../ApplicationLayer/ManageAccount/managecustomer.php">Account</a>
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
       
     </div>
   </div> 
