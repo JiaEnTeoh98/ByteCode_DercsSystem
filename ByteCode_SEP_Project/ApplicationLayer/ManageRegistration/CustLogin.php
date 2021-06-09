@@ -73,13 +73,18 @@ if(isset($_POST['login'])){
     </script>
 
     <body>
-        <div class="header">
-            <a href="userLogin.php"><img src="Image/logo.jpg" alt="Logo" height="250px"></a>
-            <br><label style="font-size: 25px;">Beep Beep</label>
-        </div>
+        
 
+        <br><br><br><br>
+            
         <br>
-        <p><strong>Login as Customer</strong>:</p>
+        
+        <div>
+            <center>
+                <p><strong>Login as Customer</strong></p>
+            </center>
+        </div>
+        
         <br>
 
         <form action="" method="POST">
