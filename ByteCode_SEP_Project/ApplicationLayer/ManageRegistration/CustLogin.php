@@ -73,13 +73,18 @@ if(isset($_POST['login'])){
     </script>
 
     <body>
-        <div class="header">
-            <a href="userLogin.php"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="50px" width="120"></a>
-            <br><label style="font-size: 25px;">Beep Beep</label>
-        </div>
+        
 
+        <br><br><br><br>
+            
         <br>
-        <p><strong>Login as Customer</strong>:</p>
+        
+        <div>
+            <center>
+                <p><strong>Login as Customer</strong></p>
+            </center>
+        </div>
+        
         <br>
 
         <form action="" method="POST">

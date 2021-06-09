@@ -74,6 +74,7 @@ body {
 
 <div class="navbar">
   <a href="#home">Home</a>
+  <a href="userLogin.php"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
   <div class="dropdown">
     <button class="dropbtn">Login
       <i class="fa fa-caret-down"></i>
