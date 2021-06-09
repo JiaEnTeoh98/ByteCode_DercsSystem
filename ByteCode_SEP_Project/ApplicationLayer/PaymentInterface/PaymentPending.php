@@ -2,15 +2,12 @@
 <?php
 require_once '../../BusinessServiceLayer/Controller/PaymentController.php';
 
-
 session_start();
-
 
 $pay = new PaymentController();
 
-//clear cust cart
+//update payment status as "Success"
 $pay->updatePending();
-
 
 ?>
 <html>
@@ -33,6 +30,7 @@ $pay->updatePending();
     <h1>Payment Pending.Please Pay Our Rider!</h1>
     <br><br><br>
     <h3>Click OK<h3>
+    <!--Redirect customer back to home page-->
     <button class="btn btn-primary"><a href="../../ApplicationLayer/HomePage/customerHomePage.php?Cus_ID=<?=$_SESSION['Cus_ID']?>" style="color: white;">OK</a></button>
 </body>
 </html>

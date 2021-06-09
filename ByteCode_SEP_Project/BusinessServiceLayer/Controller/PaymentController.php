@@ -3,6 +3,7 @@ require_once '../../BusinessServiceLayer/Model/PaymentModel.php';
 
 class PaymentController{
 
+    //Add payment
     function add(){
         $pay = new PaymentModel();
         $pay->Cus_ID = $_SESSION['Cus_ID'];
@@ -16,23 +17,25 @@ class PaymentController{
         }
     }
 
+    //Retrieve quotation details from database to display at PaymentInterface
     function viewAll(){
         $req = new PaymentModel();
         $req->Cus_ID = $_SESSION['Cus_ID'];
         return $req->viewAll();
     }
 
-    //update the cart status
+    //update payment status as success into database
     function updateSuccess(){
-        $notification = new PaymentModel();
-        $notification->Cus_ID = $_SESSION['Cus_ID'];
-        $notification->updateSuccess();
+        $pay = new PaymentModel();
+        $pay->Cus_ID = $_SESSION['Cus_ID'];
+        $pay->updateSuccess();
     }
 
+    //update payment status as pending into database
     function updatePending(){
-        $notification = new PaymentModel();
-        $notification->Cus_ID = $_SESSION['Cus_ID'];
-        $notification->updatePending();
+        $pay = new PaymentModel();
+        $pay->Cus_ID = $_SESSION['Cus_ID'];
+        $pay->updatePending();
     }
     
 

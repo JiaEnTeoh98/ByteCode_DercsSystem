@@ -5,14 +5,17 @@
 
     session_start();
 
+    //To retrieve the quotation details
     $req = new PaymentController();
     $data = $req->viewAll();
 
+    //Update payment as "Success" (PayPal)
     $pay = new PaymentController();
     if(isset($_POST['add'])){
         $pay->add();
     }
 
+    //Update payment as "Pending" (Cash On Delivery)
     $pay = new PaymentController();
     if(isset($_POST['updatePending'])){
         $pay->updatePending();
@@ -30,7 +33,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/3cc6771f24.js"></script>
-        <script src="https://www.paypal.com/sdk/js?client-id=AS2yPDgeIthzwW_hXhYjaTTLLBI6o1f8vjV2H8KcgaPt_S8EP-xc59heqBhazRhqMvdWlYkg17-tYbq8&currency=MYR"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AZtgi4JKNGstpcXVtVQHlc2rwZuZ8-2D43ImgD4TTzwLpcM82dUgnG4D4DdmGX_cMJAZoA3LVs859h6z&currency=MYR"></script>
         
         <script>paypal.Buttons().render('body');</script>
 
@@ -38,22 +41,6 @@
             td {
                 text-align: center;
             }
-
-            .logout {
-            position: fixed;
-            right: 0;
-            margin-right: 5px;
-            margin-top: 5px;
-            }
-
-            .gotocart {
-                position: fixed;
-                right: 25px;
-                bottom: 15px;
-                background-color: red;
-                border-radius: 50%;
-            }
-
             input {
                 text-align: center;
             }
@@ -66,7 +53,7 @@
         <br><br>
 
             <div style="margin-left: 1.5em;">
-
+                <!--Retrieve the quotation details form begin-->
                 <table border="1">
                     <tr>
                         <td width="150"><center><b>Device Model</b></center></td>
@@ -76,7 +63,6 @@
                         <td colspan="2" width="100"><center><b>Action</b></center></td>
                     </tr>
                     <?php 
-                    
                     foreach($data as $row){ ?>
                     <form action="" method="POST">
                     <tr>
@@ -93,15 +79,16 @@
                         <td><input type="text" name="PaymentTotal" value="<?=number_format($PaymentTotal,2); ?>"></td>
                         <td style="text-align: center;">
                         <input type="hidden" name="Quotation_ID" value="<?=$row['Quotation_ID']?>">
-                                <button type="submit" name="add"><i class="fa fa-check" aria-hidden="true"></i> &nbsp;Confirm </button>
                                 <input type="button" onclick="window.location.href='PaymentPending.php';" name="updatePending" value="COD">
                         </td>
                     <?php } ?>
                     </tr>
                 </table>
+                <!--Retrieve the quotation details form end-->
+                <br><br><br><br><br>
 
-<center>
-                <div id="paypal-button-container"></div>
+                <!-- PAYPAL BUTTON START -->
+                <div id="paypal-button-container" style="padding-left: 570px"></div>
                     <script>
                       paypal.Buttons({
                         createOrder: function(data, actions) {
@@ -129,7 +116,8 @@
             }).render('#paypal-button-container');
           </script>
             </div>
+            <!-- PAYPAL BUTTON END -->
             </form>
-    </center> 
+            </center>
     </body>
 </html>
