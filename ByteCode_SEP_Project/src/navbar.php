@@ -4,17 +4,17 @@ require_once '../../BusinessServiceLayer/controller/ManageAccountController.php'
 session_start();
 $AccType = $_GET['AccType'];
 if($AccType=='customer'){
-	$Cus_ID = $_GET['Cus_ID'];
+  $Cus_ID = $_GET['Cus_ID'];
 
 }elseif($AccType=='rider'){
-	$Rider_ID = $_GET['Rider_ID'];
+  $Rider_ID = $_GET['Rider_ID'];
 
 }elseif($AccType=='staff'){
-	$Staff_ID = $_GET['Staff_ID'];
+  $Staff_ID = $_GET['Staff_ID'];
 
 }
 
-		
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,7 +97,7 @@ body {
     </button>
     <div class="dropdown-content">
 
-      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=customer&Cus_ID=<?=$Cus_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='rider'){ ?>
       <button class="dropbtn">My Details
@@ -105,17 +105,17 @@ body {
     </button>
     <div class="dropdown-content">
 
-      <a href="../../ApplicationLayer/ManageAccount/myaccount.php">Account</a>
+      <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=rider&Rider_ID=<?=$Rider_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='staff'){ ?>
       <button class="dropbtn">Manage Account
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      			<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
-    		</div>
+            <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
+            <a href="../../ApplicationLayer/ManageAccount/managecustomer.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
+            <a href="../../ApplicationLayer/ManageAccount/managerider.php?AccType=staff&action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
+        </div>
         <?php } ?>
   </div> 
 

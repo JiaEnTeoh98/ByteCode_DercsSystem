@@ -2,7 +2,7 @@
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
-session_start();
+
 $AccType = $_GET['AccType'];
 if($AccType=='customer'){
 	$Cus_ID = $_GET['Cus_ID'];
