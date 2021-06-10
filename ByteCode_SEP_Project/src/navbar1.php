@@ -94,6 +94,15 @@ body {
       <a href="../../ApplicationLayer/ManageRegistration/CustRegister.php">Customer</a>
       <a href="../../ApplicationLayer/ManageRegistration/RiderRegistration.php">Rider</a>
     </div>
+    <div class="dropdown">
+    <button class="dropbtn">Logout
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../../ApplicationLayer/ManageRegistration/CustLogout.php">Customer</a>
+      <a href="../../ApplicationLayer/ManageRegistration/RiderLogout.php">Rider</a>
+      <a href="../../ApplicationLayer/ManageRegistration/StaffLogout.php">Staff</a>
+    </div>
 </div>
 
 
