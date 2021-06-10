@@ -1,7 +1,7 @@
 <?php 
 require_once '../../BusinessServiceLayer/controller/ManageAccountController.php';
 
-session_start();
+
 $AccType = $_GET['AccType'];
 if($AccType=='customer'){
 	$Cus_ID = $_GET['Cus_ID'];
@@ -88,10 +88,11 @@ body {
 
 
 <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="userLogin.php"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
-  <div class="dropdown">
+  
+  
   <?php if($AccType=='customer'){ ?>
+    <a href="../../ApplicationLayer/HomePage/customerHomePage.php?AccType=customer&Cus_ID=<?=$Cus_ID?>"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
+  <div class="dropdown">
     <button class="dropbtn">My Details
       <i class="fa fa-caret-down"></i>
     </button>
@@ -100,6 +101,8 @@ body {
       <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=customer&Cus_ID=<?=$Cus_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='rider'){ ?>
+      <a href="../../ApplicationLayer/HomePage/riderHomePage.php?AccType=rider&Rider_ID=<?=$Rider_ID?>"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
+  <div class="dropdown">
       <button class="dropbtn">My Details
       <i class="fa fa-caret-down"></i>
     </button>
@@ -108,6 +111,8 @@ body {
       <a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=rider&Rider_ID=<?=$Rider_ID?>">Account</a>
       
     </div><?php }elseif($AccType=='staff'){ ?>
+      <a href="../../ApplicationLayer/HomePage/staffHomePage.php?AccType=staff&Staff_ID=<?=$Staff_ID?>"><img src="https://i.ibb.co/Rb8ykrV/Whats-App-Image-2021-06-10-at-01-51-01.jpg" alt="Logo" height="25px" width="80px"></a>
+  <div class="dropdown">
       <button class="dropbtn">Manage Account
       <i class="fa fa-caret-down"></i>
     </button>

@@ -11,13 +11,14 @@
 
         function quotationlist()
         {
-            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID";
-            return DB::run($sql);
+            $sql = "select * from quotation join customer on quotation.Cus_ID=customer.Cus_ID";
+            $args = [':Cus_ID' => $this->Cus_ID];
+            return DB::run($sql,$args);
         }
 
         function quotationdata()
         {
-            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID where Quotation_ID=:Quotation_ID";
+            $sql = "select * from quotation inner join customer on quotation.Cus_ID=customer.Cus_ID where Quotation_ID=:Quotation_ID";
             $args = [':Quotation_ID' => $this->Quotation_ID];
             $stmt = DB::run($sql, $args);
             return $stmt;
@@ -25,7 +26,7 @@
         
         function quotationupdate()
         {
-            $sql = "update quotation PickupStatus=:PickupStatus , RepairStatus=:RepairStatus , RepairPrice=:RepairPrice  where Quotation_ID=:Quotation_ID";
+            $sql = "update quotation set PickupStatus=:PickupStatus , RepairStatus=:RepairStatus , RepairPrice=:RepairPrice  where Quotation_ID=:Quotation_ID";
             $args = [':Quotation_ID' => $this->Quotation_ID, ':PickupStatus' => $this->PickupStatus, ':RepairStatus' => $this->RepairStatus, ':RepairPrice' => $this->RepairPrice];
             $stmt = DB::run($sql, $args);
             return $stmt;

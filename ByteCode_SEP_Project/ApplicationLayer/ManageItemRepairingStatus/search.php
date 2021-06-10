@@ -1,4 +1,4 @@
-<?php 
+<?php include '../../src/navbar.php';?><?php 
 require_once '../../BusinessServiceLayer/controller/ItemUpdateController.php';
 
 session_start();
@@ -103,6 +103,11 @@ $quotationlist = $quotation->quotationlist();
 				width: 250px;
 			}
 
+			td {
+				background-color: white;
+
+			}
+
 			.button {
   				background-color: #4BB1C8;
   				border: none;
@@ -125,7 +130,7 @@ $quotationlist = $quotation->quotationlist();
 <br><br>
 <b>Search</b>
 <input type="text" name="myinput" id="myInput" onkeyup="myFunction()" placeholder="Quotation ID.." title="Type in a name">
-
+<br><br>
 <table class="table" id="myTable" style="font-size: 15px; ">
 
 				<thead >
@@ -164,7 +169,7 @@ $quotationlist = $quotation->quotationlist();
                   		<form action="" method="POST">
             			<center>
                 			<input type="hidden" name="Quotation_ID" value="<php echo $row['Quotation_ID']; ?>"/>
-                			<button type="submit" formaction="../../ApplicationLayer/ManageItemRepairingStatus/editItem.php?Quotation_ID=<?=$row['Quotation_ID']?>" class="button">View</button>
+                			<button type="submit" formaction="../../ApplicationLayer/ManageItemRepairingStatus/editItem.php?AccType=staff&Staff_ID=<?=$Staff_ID?>&Quotation_ID=<?=$row['Quotation_ID']?>" class="button">View</button>
             			</center>
        					 </form>
 					</td>
