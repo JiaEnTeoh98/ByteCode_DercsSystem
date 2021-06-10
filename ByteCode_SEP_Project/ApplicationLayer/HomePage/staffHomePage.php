@@ -108,15 +108,17 @@ body {
         <tr>
         <td><a href="../CustomerRequest/RequestQuotationList.php" style="color: black; text-decoration: none;"><img src="Image/CustQuote.png" width="200px" height="150px"></a></td>
         <td></td><td></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <td><a href="../ManageItemRepairingStatus/search.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
-=======
+
         <td><a href="../ManageItemRepairingStatus/search.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
-=======
+
+
         <td><a href="../ManageItemRepairingStatus/search.php?search.php?AccType=staff&Staff_ID=<?=$Staff_ID?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
+
+
+        <td><a href="../ManageItemRepairingStatus/search.php?search.php?AccType=staff&Staff_ID=<?=$Staff_ID?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
+
         
         </tr>
         <tr>

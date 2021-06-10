@@ -8,15 +8,11 @@ $Quotation_ID = $_GET['Quotation_ID'];
 $quotation = new ItemUpdateController();
 $quotationdata = $quotation->quotationdata($Quotation_ID);
 
-<<<<<<< HEAD
 
-=======
+
 if(isset($_POST['done'])){
 	$Quotation_ID=$_POST['Quotation_ID'];
-<<<<<<< HEAD
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
-=======
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
+
     $quotationupdate = $quotation->quotationupdate($Quotation_ID);
 }
 		
@@ -101,21 +97,25 @@ if(isset($_POST['done'])){
                                     </tr>
                                     <tr>
                                         <td rowspan="2">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                                             <h3>Name:    <?php echo $row['CustName']; ?></h3>
                                             <h3>Phone:   <?php echo $row['CustPhoneNo']; ?></h3>
                                             <h3>Address: <?php echo $row['CustAddress']; ?></h3>
-=======
+
                                             Name:    <?php echo $row['CustName']; ?><br>
                                             Phone:   <?php echo $row['CustPhoneNo']; ?><br>
                                             Address: <?php echo $row['CustAddress']; ?><br>
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
-=======
+
+
                                             Name:    <?php echo $row['CustName']; ?><br>
                                             Phone:   <?php echo $row['CustPhoneNo']; ?><br>
                                             Address: <?php echo $row['CustAddress']; ?><br>
->>>>>>> 7e81aa263df4347dd9580def11b7e8c65f1c6ee7
+
+
+                                            Name:    <?php echo $row['CustName']; ?><br>
+                                            Phone:   <?php echo $row['CustPhoneNo']; ?><br>
+                                            Address: <?php echo $row['CustAddress']; ?><br>
+
 										</td>
 										<td>
 											<h3>Item Status 
