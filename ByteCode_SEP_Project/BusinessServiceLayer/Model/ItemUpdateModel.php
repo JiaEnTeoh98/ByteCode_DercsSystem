@@ -25,7 +25,7 @@
         
         function quotationupdate()
         {
-            $sql = "update quotation PickupStatus=:PickupStatus , RepairStatus=:RepairStatus , RepairPrice=:RepairPrice  where Quotation_ID=:Quotation_ID";
+            $sql = "update quotation set PickupStatus=:PickupStatus , RepairStatus=:RepairStatus , RepairPrice=:RepairPrice  where Quotation_ID=:Quotation_ID";
             $args = [':Quotation_ID' => $this->Quotation_ID, ':PickupStatus' => $this->PickupStatus, ':RepairStatus' => $this->RepairStatus, ':RepairPrice' => $this->RepairPrice];
             $stmt = DB::run($sql, $args);
             return $stmt;

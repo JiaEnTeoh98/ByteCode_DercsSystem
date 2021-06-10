@@ -23,7 +23,7 @@
             $quotation->RepairStatus = $_POST['RepairStatus'];
             $quotation->RepairPrice = $_POST['RepairPrice'];
             if($quotation->quotationupdate()){
-				echo "<script type='text/javascript'>window.location = '../../ApplicationLayer/ManageItemRepairingStatus/managequotation.php?AccType=staff&Staff_ID=<?=$Staff_ID?>&Quotation_ID=".$_POST['Quotation_ID']."';</script>";
+				echo "<script type='text/javascript'>window.location = '../../ApplicationLayer/ManageItemRepairingStatus/editItem.php?AccType=staff&Staff_ID=<?=$Staff_ID?>&Quotation_ID=".$_POST['Quotation_ID']."';</script>";
 			}
         }
 

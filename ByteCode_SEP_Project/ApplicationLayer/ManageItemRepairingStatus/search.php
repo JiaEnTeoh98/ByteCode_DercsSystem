@@ -130,7 +130,7 @@ $quotationlist = $quotation->quotationlist();
 <br><br>
 <b>Search</b>
 <input type="text" name="myinput" id="myInput" onkeyup="myFunction()" placeholder="Quotation ID.." title="Type in a name">
-
+<br><br>
 <table class="table" id="myTable" style="font-size: 15px; ">
 
 				<thead >
