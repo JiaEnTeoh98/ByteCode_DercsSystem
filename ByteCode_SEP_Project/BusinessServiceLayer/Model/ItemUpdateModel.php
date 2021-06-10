@@ -14,17 +14,19 @@
             $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID";
             return DB::run($sql);
         }
-        
-        function searchcust(){
-            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID where id=:id";
-            $args = [':id' => $this->id];
+
+        function quotationdata()
+        {
+            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID where Quotation_ID=:Quotation_ID";
+            $args = [':Quotation_ID' => $this->Quotation_ID];
             $stmt = DB::run($sql, $args);
             return $stmt;
         }
-
-        function searchquotation(){
-            $sql = "select * from quotation inner join customer on quotation.id=customer.Cus_ID where Quotation_ID=:Quotation_ID";
-            $args = [':Quotation_ID' => $this->Quotation_ID];
+        
+        function quotationupdate()
+        {
+            $sql = "update quotation set PickupStatus=:PickupStatus , RepairStatus=:RepairStatus , RepairPrice=:RepairPrice  where Quotation_ID=:Quotation_ID";
+            $args = [':Quotation_ID' => $this->Quotation_ID, ':PickupStatus' => $this->PickupStatus, ':RepairStatus' => $this->RepairStatus, ':RepairPrice' => $this->RepairPrice];
             $stmt = DB::run($sql, $args);
             return $stmt;
         }
