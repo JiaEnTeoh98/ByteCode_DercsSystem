@@ -1,14 +1,15 @@
+<?php include '../../src/navbar.php';?>
 <?php 
 require_once '../../BusinessServiceLayer/controller/ItemUpdateController.php';
 
-session_start();
 
 $Quotation_ID = $_GET['Quotation_ID'];
 
 $quotation = new ItemUpdateController();
-$quotationdata = $quotation->quotationdata();
+$quotationdata = $quotation->quotationdata($Quotation_ID);
 
 if(isset($_POST['done'])){
+	$Quotation_ID=$_POST['Quotation_ID'];
     $quotationupdate = $quotation->quotationupdate($Quotation_ID);
 }
 		
@@ -27,70 +28,8 @@ if(isset($_POST['done'])){
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 		<style>
-			body {
-  				font-family: Arial, Helvetica, sans-serif;
-			}
-			.navbar {
-			  overflow: hidden;
-			  background-color: #333;
-			}
-			
-			.navbar a {
-			  float: left;
-			  font-size: 16px;
-			  color: white;
-			  text-align: center;
-			  padding: 14px 16px;
-			  text-decoration: none;
-			}
-			
-			.dropdown {
-			  float: left;
-			  overflow: hidden;
-			}
-			
-			.dropdown .dropbtn {
-			  font-size: 16px;  
-			  border: none;
-			  outline: none;
-			  color: white;
-			  padding: 14px 16px;
-			  background-color: inherit;
-			  font-family: inherit;
-			  margin: 0;
-			}
-			
-			.navbar a:hover, .dropdown:hover .dropbtn {
-			  background-color: red;
-			}
-			
-			.dropdown-content {
-			  display: none;
-			  position: absolute;
-			  background-color: #f9f9f9;
-			  min-width: 160px;
-			  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			  z-index: 1;
-			}
-			
-			.dropdown-content a {
-			  float: none;
-			  color: black;
-			  padding: 12px 16px;
-			  text-decoration: none;
-			  display: block;
-			  text-align: left;
-			}
-			
-			.dropdown-content a:hover {
-			  background-color: #ddd;
-			}
-			
-			.dropdown:hover .dropdown-content {
-			  display: block;
-			}
 
-			table {
+			.table {
 				font-family: arial, sans-serif;
 				border-collapse: collapse;
 				width: 50%;
@@ -124,40 +63,28 @@ if(isset($_POST['done'])){
 	</head>
 
 	<body>	
-	<div class="navbar">
-  		<a href="../../ApplicationLayer/HomePage/staffHomePage.php?Staff_ID=<?=$Staff_ID?>">Home</a>
-  		<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-  		<div class="dropdown">
-    		<button class="dropbtn">Manage Account 
-      		<i class="fa fa-caret-down"></i>
-    		</button>
-    		<div class="dropdown-content">
-      			<a href="../../ApplicationLayer/ManageAccount/myaccount.php?AccType=staff&Staff_ID=<?=$Staff_ID?>">My Account</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managecustomer.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Customer</a>
-      			<a href="../../ApplicationLayer/ManageAccount/managerider.php?action=list&Staff_ID=<?=$Staff_ID?>">Manage Rider</a>
-    		</div>
-  		</div> 
-	</div>
 
 		<!--    utk content    -->
-		<div class="container-fluid content mb-5">
-			<div class="col-lg-12 py-4" align="center">
-				<div class="col-lg  form-style-6">
-					<fieldset>
+
 						
-							<legend>
+							<legend><center>
 							<br><br>
 								<h1>Edit Quotation Item</h1>
+								</center>
 							</legend>
 							<br>
-                            <center>
+                            
                             <?php 
 							    foreach ($quotationdata as $row) {
 							?>
-                            <h3>Quotation ID: <?php echo $row['Quotation_ID']; ?><</h3>
-                            <form action="" method="post">
-							    <table class="table " style="font-size: 15px; ">
-									<tr>
+                            <center>
+                           <form action="" method="post">
+							    <table class="table " style="font-size: 16px; ">
+								
+									 <tr colspan="2">
+									 <strong>Quotation ID: <?php echo $row['Quotation_ID']; ?><strong>
+									 <tr>
+									 <tr>
 										<th style="width: 30%;">
 											<h3>Customer Information</h3>
 										</th >
@@ -167,9 +94,9 @@ if(isset($_POST['done'])){
                                     </tr>
                                     <tr>
                                         <td rowspan="2">
-                                            <h3>Name:    <?php echo $row['CustName']; ?></h3>
-                                            <h3>Phone:   <?php echo $row['CustPhoneNo']; ?></h3>
-                                            <h3>Address: <?php echo $row['CustAdress']; ?></h3>
+                                            Name:    <?php echo $row['CustName']; ?><br>
+                                            Phone:   <?php echo $row['CustPhoneNo']; ?><br>
+                                            Address: <?php echo $row['CustAddress']; ?><br>
 										</td>
 										<td>
 											<h3>Item Status 
@@ -190,27 +117,27 @@ if(isset($_POST['done'])){
 										</td>
 									</tr>
                                     <tr>
-                                        <td><h3>Item Details
+                                        <td><h3>Item Details:
                                             <?php if($row['RepairStatus']=="Pending"){
 												?>
 												<select name="RepairStatus">
                                     				<option value="Pending" selected>Pending</option>
-                                    				<option value="On progress" >On Progress</option>
+                                    				<option value="OnProgress" >On Progress</option>
                                                     <option value="Repaired" >Repaired</option>
                                 				</select>
                                             <?php 
-											}elseif($row['RepairStatus']=="On Progress"){
+											}elseif($row['RepairStatus']=="OnProgress"){
 												?>
 												<select name="RepairStatus">
                                                     <option value="Pending" >Pending</option>
-                                    				<option value="On progress" selected>On Progress</option>
+                                    				<option value="OnProgress" selected>On Progress</option>
                                                     <option value="Repaired" >Repaired</option>
                                 				</select>
 											<?php }elseif($row['RepairStatus']=="Repaired"){
 												?>
 												<select name="RepairStatus">
                                                     <option value="Pending" >Pending</option>
-                                    				<option value="On progress" >On Progress</option>
+                                    				<option value="OnProgress" >On Progress</option>
                                                     <option value="Repaired" selected>Repaired</option>
                                 				</select>
 											<?php } ?></h3>

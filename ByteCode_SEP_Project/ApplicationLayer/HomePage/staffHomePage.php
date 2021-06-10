@@ -108,7 +108,7 @@ body {
         <tr>
         <td><a href="../CustomerRequest/RequestQuotationList.php" style="color: black; text-decoration: none;"><img src="Image/CustQuote.png" width="200px" height="150px"></a></td>
         <td></td><td></td>
-        <td><a href="../ManageItemRepairingStatus/quotationCust.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
+        <td><a href="../ManageItemRepairingStatus/search.php?AccType=staff&Staff_ID=<?=$Staff_ID?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
         
         </tr>
         <tr>
