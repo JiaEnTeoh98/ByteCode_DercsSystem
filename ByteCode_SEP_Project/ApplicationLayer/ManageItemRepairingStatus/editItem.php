@@ -10,7 +10,7 @@ $quotationdata = $quotation->quotationdata($Quotation_ID);
 
 
 
-if(isset($_POST['done'])){
+if(isset($_POST['Done'])){
 	$Quotation_ID=$_POST['Quotation_ID'];
 
     $quotationupdate = $quotation->quotationupdate($Quotation_ID);

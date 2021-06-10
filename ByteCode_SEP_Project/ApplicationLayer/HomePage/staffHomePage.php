@@ -111,7 +111,6 @@ body {
 
         <td><a href="../ManageItemRepairingStatus/search.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
 
-        <td><a href="../ManageItemRepairingStatus/search.php" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
 
 
         <td><a href="../ManageItemRepairingStatus/search.php?search.php?AccType=staff&Staff_ID=<?=$Staff_ID?>" style="color: black; text-decoration: none;"><img src="Image/repair.jpg" width="200px" height="150px"></a></td>
