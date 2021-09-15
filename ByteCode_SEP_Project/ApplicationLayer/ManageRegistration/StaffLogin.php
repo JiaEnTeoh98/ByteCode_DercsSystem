@@ -1,5 +1,7 @@
+<?php include '../../src/navbar1.php';?>
 <?php
 require_once '../../BusinessServiceLayer/controller/ManageRegistrationController.php';
+
 $user = new ManageRegistrationController();
 
 if(isset($_POST['login'])){
@@ -73,10 +75,11 @@ if(isset($_POST['login'])){
 
     <body>
         <div class="header">
-            <a href="userLogin.php"><img src="Image/logo.jpg" alt="Logo" height="250px"></a>
-            <br><label style="font-size: 25px;">Beep Beep</label>
+            
         </div>
 
+        <br><br><br><br>
+            
         <br>
         <p><strong>Login as Staff</strong>:</p>
         <br>

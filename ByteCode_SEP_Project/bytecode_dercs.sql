@@ -62,6 +62,7 @@ CREATE TABLE `item` (
 CREATE TABLE `payment` (
   `PaymentID` varchar(10) NOT NULL,
   `Quotation_ID` varchar(10) NOT NULL,
+  `Cus_ID` varchar(10) NOT NULL,
   `PaymentType` varchar(16) NOT NULL,
   `PaymentDate` date NOT NULL,
   `PaymentTime` time NOT NULL,
